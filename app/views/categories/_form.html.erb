@@ -1,0 +1,45 @@
+<%= form_for(@category, html: { class: "ui form" }) do |f| %>
+
+<% if @category.errors.any? %>
+<!-- <script>
+  $(".ui.form").addClass("error");
+  $(".field_with_errors").parent().addClass("error");
+</script> -->
+<div id="error_explanation">
+  <div class="ui error message">
+    <div class="header">
+      The form contains
+      <%= pluralize(@category.errors.count, "error") %>.
+    </div>
+
+    <ul class="list">
+      <% @category.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+<br/>
+<div class="field">
+  <!-- <%= f.label :category_name, "类名" %> -->
+  <%= f.text_field :category_name, class: "category-input", placeholder: "类名" %>
+</div>
+
+<div class="field">
+  <%= f.text_field :category_brief, class: "category-input", placeholder: "简要" %>
+</div>
+
+<div class="field">
+  <%= f.text_field :category_image, class: "category-input", placeholder: "分类图（请填写图片url）" %>
+</div>
+
+<% if @category.errors.any? %>
+<script>
+  $(".ui.form").addClass("error");
+  $(".field_with_errors").parent().addClass("error");
+</script>
+<% end %>
+
+<%= f.submit "完成", class: "ui fluid large submit button" %>
+<% end %>

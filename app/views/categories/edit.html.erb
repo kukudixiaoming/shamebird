@@ -1,0 +1,10 @@
+<div class="ui text container">
+  <br/>
+  <h1 class="ui grey header">
+    编辑分类
+  </h1>
+  <%= render 'form' %>
+  <br/>
+  <%= link_to '全部分类', categories_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+  <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm:'确定要删除吗？'} %>
+</div>

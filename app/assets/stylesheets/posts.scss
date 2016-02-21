@@ -1,0 +1,65 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body.posts-new,body.posts-edit {
+  background-color: #C7EDCC;
+  // background-image: image-url("editor-bg.jpg");
+}
+.ui.container.post-form {
+  background-color: #FFFFFF;
+  // border: 1px solid #eeeeee;
+  // border-top: 5px solid #eeeeee;
+  // padding-top: 1em;
+  margin-top: 3em;
+}
+.post-title-field {
+  line-height: 30px !important;
+  font-size: 30px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 30px !important;
+  &:focus {
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+.post-image-field {
+  line-height: 16px !important;
+  font-size: 16px !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  // padding: 0 30px !important;
+  border: 2px dashed #E0E1E2 !important;
+  &:focus {
+    border: 2px dashed #00BCD4 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+}
+.simditor {
+  border: none !important;
+  &:focus {
+    border: none !important;
+  }
+}
+.simditor .simditor-body {
+  min-height: 892px;
+  font-size: 18px !important;
+  font-weight: 100 !important;
+  line-height: 30px !important;
+  padding: 22px 30px 40px !important;
+}
+.simditor .simditor-toolbar {
+  border-bottom: none !important;
+  background: #eeeeee !important;
+}
+.cover {
+  text-align: center;
+}
+.cover img {
+  max-width: 100%;
+  display: inline-block;
+  border-radius: 0.3em;
+}

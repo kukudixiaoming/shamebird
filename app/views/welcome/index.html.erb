@@ -1,0 +1,24 @@
+<div class="ui container">
+  <br/>
+  <!-- <h1 class="ui grey header">
+    <%= link_to "骚年", root_path, title:"不一样的烟火", id:"teenager" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "树洞", '#', title:"心里的小秘密", id:"tree-hole" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "知识", '#', title:"心里的小秘密", id:"knowledge" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "纸条", '#', title:"心里的小秘密", id:"paper" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "摄影", '#', title:"(●'◡'●)小黑屋", id:"photography" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "项目库", '#', title:"(●'◡'●)小黑屋", id:"project-library" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "事项", '#', title:"梦想起航我起床", id:"to-do" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "123", '#', title:"带我去一个神奇的地方", id:"go-123" %>
+  </h1> -->
+
+  <div class="ui equal width grid">
+    <% @categories.each do |category| %>
+    <div class="column">
+      <!-- <%= image_tag(category.category_image, class: "ui circular image", alt: category.category_name) %> -->
+      <h1 class="ui header">
+        <%= link_to category.category_name, category_path(category), title: category.category_brief, id: "category-#{category.id}" %>
+      </h1>
+    </div>
+    <% end %>
+  </div>
+</div>

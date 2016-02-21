@@ -1,0 +1,11 @@
+<!-- 瀑布流布局 -->
+  <div id="masonry" class="container-fluid">
+    <% @category.posts.reverse.each do |post| %>
+    <div class="box">
+      <%= link_to "/categories/#{@category.id}/posts/#{post.id}" do %>
+      <%= image_tag(post.post_image, alt: post.post_title) %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+<!-- 瀑布流布局 -->

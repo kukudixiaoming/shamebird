@@ -1,0 +1,12 @@
+
+<!-- <%= image_tag(post1.post_image, class: "post-image", alt: post1.post_title) %> -->
+<h1 class="ui center aligned header">
+  <%= link_to category_post_path(@category, post1), class: "post-title-link" do %>
+  <%= post1.post_title %>
+  <% end %>
+</h1>
+<h5 class="ui grey header">
+  <%= post1.created_at.localtime.strftime("%Y年%m月%d日") %>
+</h5>
+<!-- <div class="post-text"><%= sanitize post1.post_text %></div> -->
+<div class="post-text"><%= sanitize cutpost(post1.post_text, category_post_path(@category, post1)) %></div>
