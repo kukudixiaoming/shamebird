@@ -1,0 +1,43 @@
+<div class="ui container category-header">
+  <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
+  <h1 class="ui header">
+    <%= image_tag(@category.category_image, class: "ui circular image", alt: @category.category_name) %>
+    <div class="content">
+      <%= @category.category_name %>
+      <div class="sub header"><%= @category.category_brief %></div>
+    </div>
+  </h1>
+  <br/>
+  <%= link_to '添加分类', new_category_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+  <%= link_to '编辑分类', edit_category_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp;
+  <%= link_to '全部分类', categories_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+  <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm:'确定要删除吗？'} %>
+</div>
+
+<div class="ui container post-form">
+  <%= form_for([@category, @category.posts.build], html: { class: "ui form"}) do |f| %>
+
+    <!-- <h1 class="ui grey header">写作</h1> -->
+    <div class="field">
+      <!-- <%= f.label :post_title, "标题" %> -->
+      <!-- <%= f.text_field :post_title, class: "post-title-field", placeholder: "标题" %> -->
+      <%= f.text_field :post_title, class: "post-title-field", placeholder: "这里是标题" %>
+    </div>
+    <div class="field">
+      <!-- <%= f.label :post_text, "正文" %> -->
+      <%= f.text_area :post_text, id: "editor" %>
+    </div>
+    <div class="field">
+      <!-- <%= f.label :post_image, "特色图" %> -->
+      <%= f.text_field :post_image, class: "post-title-field", placeholder: "特色图（请填写图片url）" %>
+    </div>
+
+    <%= f.submit "保存文章并且发表在#{@category.category_name}分类", class: "ui fluid large submit button" %>
+  <% end %>
+
+  <% @category.posts.each do |post| %>
+    <%= image_tag(post.post_image, class: "ui circular image", alt: post.post_title) %>
+    <%= post.post_title %>
+    <%= post.post_text %>
+  <% end %>
+</div>

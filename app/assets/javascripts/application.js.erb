@@ -1,0 +1,114 @@
+// This is a manifest file that'll be compiled into application.js, which will include all the files
+// listed below.
+//
+// Any JavaScript/Coffee file within this directory, lib/assets/javascripts, vendor/assets/javascripts,
+// or any plugin's vendor/assets/javascripts directory can be referenced here using a relative path.
+//
+// It's not advisable to add code directly here, but if you do, it'll appear at the bottom of the
+// compiled file.
+//
+// Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
+// about supported directives.
+//
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+// Loads all Semantic javascripts
+//= require semantic-ui
+// simditor 编辑器 javascripts
+//= require simditor
+//= require_tree .
+
+
+//********** 初始化 simditor 编辑器 **********
+$(document).ready(function() {
+  var editor = new Simditor({
+    textarea: $('#editor'),
+    //optional options
+    //markdown: true,
+    toolbar: [
+      'title', 'bold', 'italic', 'underline', 'strikethrough', 'color',
+      /*'checklist',*/ '|', 'ol', 'ul', 'blockquote', 'hr', 'indent', 'outdent',
+      'alignment', '|', 'code', 'table', 'link', 'image','emoji', 'markdown',
+      'fullscreen'
+    ],
+    placeholder: '',
+    pasteImage: true,
+    defaultImage: '/images/image.png',
+    // upload: '../../../images/upload/',
+    emoji: {
+      imagePath: '/images/emoji'
+    },
+    autosavePath: '/editor-content/new/autosave',
+    autosave: false
+  });
+
+});
+// ********** 编辑器 simditor-body 的高度等于窗口高度 **********
+// function AdaptHeight(){
+//   height = $(window).height();  //获取浏览器可视窗口的高度
+//   $(".simditor .simditor-body").css("min-height",height); //赋值给页面的高度属性
+// }
+// window.onresize = AdaptHeight();  //！！！没用 ********** onresize 事件会在窗口或框架被调整大小时发生
+// $(document).ready(function(){
+//   AdaptHeight();  //！！！没用
+// });
+
+//********** 使 .post-text 中的图片居中，给图片加一个父元素div **********
+// $(document).ready(function(){
+//     $(".post-text img").wrap("<div class='cover-image'></div>");
+// });
+
+$(document).on('page:change',function(){
+    $(".post-text img").wrap("<div class='cover'></div>");
+    $(".cover").addClass("cover");
+});
+
+//********** 瀑布流布局 **********
+$(document).on('page:change',function(){
+    var $container = $('#masonry');
+    $container.imagesLoaded(function() {
+        $container.masonry({
+                itemSelector: '.box',
+                gutter: 20,
+                isAnimated: true,
+                isFitWidth: true,
+                isResizableL: true
+            });
+     });
+});
+
+//********** me#paper 点击显示 category_id **********
+// $(document).on('page:change',function(){
+// $(".me-category").click(function(){
+//   alert($(this).attr("id"));
+// });
+// });
+
+//********** semantic-ui js **********
+$(document).on('page:change',function(){
+$('.ui.accordion')
+  .accordion()
+;
+});
+
+//********** iframe 的高度等于窗口高度 **********
+function AdaptHeight(){
+  height = $(window).height();  //获取浏览器可视窗口的高度
+  $('iframe').attr("height",height); //赋值给页面的高度属性
+}
+window.onresize = AdaptHeight();  //！！！没用 ********** onresize 事件会在窗口或框架被调整大小时发生
+$(document).on('page:change',function(){
+  AdaptHeight();
+});
+//********** 删除 post-text 中的 moremore **********
+$(document).on('page:change',function(){
+// var str = document.getElementById("post-text").innerHTML;
+var $str = $(".post-text").html().replace("moremore","");
+$(".post-text.post-page").html($str);
+});
+
+$(document).on('page:change',function(){
+hljs.initHighlightingOnLoad();
+});
+console.log('lovely powered by Tobin');

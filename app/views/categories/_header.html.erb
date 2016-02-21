@@ -1,0 +1,12 @@
+<div class="full-width-header">
+  <div class="ui center aligned container">
+    <h1 class="ui header">
+      <% @categories.each do |category| %>
+      <!-- <%= image_tag(category.category_image, class: "ui circular image", alt: category.category_name) %> -->
+      <%= link_to category.category_name, category_path(category),
+    title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <% end %>
+    </h1>
+  </div>
+</div>
