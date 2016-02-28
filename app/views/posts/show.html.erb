@@ -6,6 +6,6 @@
   <%= link_to "编辑", edit_category_post_path(@category, @post), data: { no_turbolink: true } %>
   <%= link_to '删除', category_post_path(@category, @post), method: :delete, data: {confirm:'确定要删除吗？'} %>
 </h5>
-<div class="post-text post-page"><%= sanitize @post.post_text %></div>
+<div class="post-text post-page"><%= raw @post.post_text %></div>
 </div>
 <%= render 'categories/footer' %>

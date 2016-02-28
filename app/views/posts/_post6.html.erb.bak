@@ -1,0 +1,26 @@
+<div class="ui cards">
+  <% @category.posts.each do |post| %>
+  <div class="card">
+    <div class="content">
+      <%= image_tag(post.post_image, class: "right floated mini ui image", alt: post.post_title) %>
+      <div class="header">
+        <%= link_to "/categories/#{@category.id}/posts/#{post.id}" do %>
+          <%= post.post_title %>
+        <% end %>
+      </div>
+      <div class="meta">
+        html/css/js/php
+      </div>
+      <div class="description">
+        <%= sanitize post.post_text %>
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="ui two buttons">
+        <div class="ui basic green button">Here we go</div>
+        <div class="ui basic green button">Github</div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

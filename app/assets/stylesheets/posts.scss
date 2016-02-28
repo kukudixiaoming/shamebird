@@ -38,6 +38,28 @@ body.posts-new,body.posts-edit {
     box-shadow: none !important;
   }
 }
+.posts-timeline {
+  border-left: 3px solid #DEDEDE;
+}
+.post-timeline {
+  padding-left: 42px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  border-bottom: 1px dashed #dedede;
+}
+.post-timeline-dot {
+  display: inline-block;
+  /* position: absolute; */
+  /* top: 0px; */
+  /* left: 0; */
+  margin-left: -52px;
+  width: 1.2rem;
+  height: 1.2rem;
+  // opacity: 0.5;
+  background: #9E9E9E;
+  // border: 1px solid #FFFFFF;
+  border-radius: 1000px;
+}
 .simditor {
   border: none !important;
   &:focus {
@@ -62,4 +84,11 @@ body.posts-new,body.posts-edit {
   max-width: 100%;
   display: inline-block;
   border-radius: 0.3em;
+}
+.ui.header.inline-block {
+  display: inline-block;
+  margin-left: 3em;
+}
+a.greylink, a.greylink:active, a.greylink:hover, a.greylink:focus {
+  color: #6B6868 !important;
 }

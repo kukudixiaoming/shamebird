@@ -23,15 +23,15 @@
 <br/>
 <div class="field">
   <!-- <%= f.label :category_name, "类名" %> -->
-  <%= f.text_field :category_name, class: "category-input", placeholder: "类名" %>
+  <%= f.text_field :category_name, class: "category-input", placeholder: "类名", autocomplete: "off" %>
 </div>
 
 <div class="field">
-  <%= f.text_field :category_brief, class: "category-input", placeholder: "简要" %>
+  <%= f.text_field :category_brief, class: "category-input", placeholder: "简要", autocomplete: "off" %>
 </div>
 
 <div class="field">
-  <%= f.text_field :category_image, class: "category-input", placeholder: "分类图（请填写图片url）" %>
+  <%= f.text_field :category_image, class: "category-input", placeholder: "分类图（请填写图片url）", autocomplete: "off" %>
 </div>
 
 <% if @category.errors.any? %>

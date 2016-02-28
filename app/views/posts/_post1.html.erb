@@ -9,4 +9,4 @@
   <%= post1.created_at.localtime.strftime("%Y年%m月%d日") %>
 </h5>
 <!-- <div class="post-text"><%= sanitize post1.post_text %></div> -->
-<div class="post-text"><%= sanitize cutpost(post1.post_text, category_post_path(@category, post1)) %></div>
+<div class="post-text"><%= raw cutpost(post1.post_text, category_post_path(@category, post1)) %></div>

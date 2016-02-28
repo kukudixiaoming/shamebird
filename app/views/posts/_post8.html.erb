@@ -1,0 +1,19 @@
+<div class="ui horizontal divider">
+  经常会去的
+</div>
+<div class="four column doubling ui grid">
+<% @category.posts.each do |post| %>
+<div class="column">
+<h3 class="ui header">
+  <%= image_tag(post.post_image, class: "ui circular image", alt: post.post_title) %>
+  <div class="content">
+    <%= link_to post.post_title, "/categories/#{@category.id}/posts/#{post.id}", class: "greylink" %>
+    <div class="sub header"><%= sanitize post.post_text %></div>
+  </div>
+</h3>
+</div>
+<% end %>
+</div>
+<div class="ui horizontal divider">
+  窝的朋友们
+</div>
