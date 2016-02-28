@@ -92,15 +92,15 @@ $('.ui.accordion')
 ;
 });
 
-//********** iframe 的高度等于窗口高度 **********
-function AdaptHeight(){
-  height = $(window).height();  //获取浏览器可视窗口的高度
-  $('iframe').attr("height",height); //赋值给页面的高度属性
-}
-window.onresize = AdaptHeight();  //！！！没用 ********** onresize 事件会在窗口或框架被调整大小时发生
-$(document).on('page:change',function(){
-  AdaptHeight();
-});
+//********** iframe 的高度等于窗口高度 ！！！此处会影响网易云音乐的iframe ********** **********
+// function AdaptHeight(){
+//   height = $(window).height();  //获取浏览器可视窗口的高度
+//   $('iframe').attr("height",height); //赋值给页面的高度属性
+// }
+// window.onresize = AdaptHeight();  //！！！没用 ********** onresize 事件会在窗口或框架被调整大小时发生
+// $(document).on('page:change',function(){
+//   AdaptHeight();
+// });
 //********** 删除 post-text 中的 moremore **********
 $(document).on('page:change',function(){
 // var str = document.getElementById("post-text").innerHTML;
