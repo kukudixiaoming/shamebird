@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     root 'categories#show'
 
   resources :categories do
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
   end
 
   get 'me' => 'me#paper'
