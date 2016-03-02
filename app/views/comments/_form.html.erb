@@ -1,0 +1,43 @@
+<%= form_for([@category, @post, @comment], html: {class: "ui form"}) do |f| %>
+<% if @comment.errors.any? %>
+<div id="error_explanation">
+  <div class="ui error message">
+    <div class="header">
+      The form contains
+      <%= pluralize(@comment.errors.count, "error") %>.
+    </div>
+
+    <ul class="list">
+      <% @comment.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+<br/>
+<!-- <h3 class="ui grey dividing header">添加新评论</h3> -->
+<h3 class="ui grey header">添加新评论</h3>
+<br/>
+<div class="field">
+  <%= f.text_field :comment_author, class: "category-input", placeholder: "称呼", autocomplete: "off" %>
+</div>
+<div class="field">
+  <%= f.text_field :comment_email, class: "category-input", placeholder: "邮箱", autocomplete: "off" %>
+</div>
+<div class="field">
+  <%= f.text_field :comment_site, class: "category-input", placeholder: "网站", autocomplete: "off" %>
+</div>
+<div class="field">
+  <%= f.text_area :comment_text, class: "category-input", placeholder: "评论在这里写", autocomplete: "off" %>
+</div>
+
+<% if @comment.errors.any? %>
+<script>
+  $(".ui.form").addClass("error");
+  $(".field_with_errors").parent().addClass("error");
+</script>
+<% end %>
+
+<%= f.submit "完成", class: "ui submit grey basic button" %>
+<% end %>
