@@ -4,10 +4,10 @@
 <div class="four column doubling ui grid">
 <% @category.posts.each do |post| %>
 <div class="column">
-<h3 class="ui header">
-  <%= image_tag(post.post_image, class: "ui circular image", alt: post.post_title) %>
+<h3 class="ui header" id="<%= "link-#{post.id}" %>">
+  <%= image_tag(post.post_image.sub(/!.*$/,""), class: "ui circular image", alt: post.post_title) %>
   <div class="content">
-    <%= link_to post.post_title, "/categories/#{@category.id}/posts/#{post.id}", class: "greylink" %>
+    <%= link_to post.post_title, post_link(post.post_image), class: "greylink" %>
     <div class="sub header"><%= sanitize post.post_text %></div>
   </div>
 </h3>

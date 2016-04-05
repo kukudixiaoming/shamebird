@@ -10,16 +10,18 @@ module CategoriesHelper
 
   def which_posts_template(category_id=1)
     case category_id
-    when 1,3
-      render partial: "posts/post1", collection: @category.posts.reverse
+    # when 1,3
+    #   render partial: "posts/post1", collection: @category.posts.reverse
     when 4
       render 'posts/post4'
     when 5
       render 'posts/post5'
     when 8
-      render 'posts/post8'  
+      render 'posts/post8'
     else
       "泥壕，我的 category_id 是 #{category_id}"
+      render partial: "posts/post1", collection: @category.posts.reverse
+      # "泥壕，我的 category_id 是 #{category_id}"
     end
   end
 
