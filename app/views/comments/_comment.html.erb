@@ -13,6 +13,8 @@
             %>
 
         <%= comment.created_at %>
+        <%= link_to '删除', [@category, comment.post, comment],# 为什么要这样写
+         method: :delete, data: {confirm:'确定要删除吗？'} %>
       </span>
     </div>
     <div class="text">
