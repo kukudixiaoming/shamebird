@@ -35,6 +35,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'semantic-ui-sass', '~> 2.1', '>= 2.1.8.0'
 # use simditor gem 编辑器
   gem 'simditor', '~> 2.3', '>= 2.3.6'
+# 处理图片上传
+  gem 'carrierwave'
+# 调整图片尺寸
+  gem 'mini_magick'
+# 用于在生产环境中上传图片
+  gem 'fog'
 
 group :development, :test do
   gem 'sqlite3'
