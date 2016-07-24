@@ -1,4 +1,12 @@
-<div class="full-width-header">
+
+
+
+<div class="full-width-header top-header">
+  <!-- <h3 class="ui header">
+    <img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1726094907,3327222643&fm=58" class="ui circular image">
+    <div class="content">羞耻的噜噜 <div class="sub header">游戏，美术，音乐与二次元</div>
+  </div>
+</h3> -->
   <div class="ui center aligned container">
     <h1 class="ui header">
       <% @categories.each do |category| %>
@@ -6,6 +14,13 @@
       <%= link_to category.category_name, category_path(category),
     title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
       &nbsp;&nbsp;&nbsp;&nbsp;
+      <% end %>
+      <%= link_to microblogs_path, class: "category-header-link" do %>
+      纸条
+      <% end %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <%= link_to albums_path, class: "category-header-link" do %>
+      影集
       <% end %>
     </h1>
   </div>

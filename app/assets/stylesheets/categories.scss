@@ -7,6 +7,9 @@
 //   background-color: #C7EDCC;
 //   background-image: image-url("editor-bg.jpg");
 // }
+div.top-header{
+  padding: 1.7em 1em 1em 1em;
+}
 div.full-width-header{
   width: 100%;
   // background-color: #FBFBFB;
@@ -70,6 +73,7 @@ div.post-text {
   font-size: 17px;
   // font-size: 1.4em;
   color: rgba(0, 0, 0, 0.5);
+  padding-left: 10px;
 }
 div.copy-text{
   line-height: 1.9em;

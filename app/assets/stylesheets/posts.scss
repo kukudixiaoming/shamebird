@@ -5,14 +5,18 @@ body.posts-new,body.posts-edit {
   background-color: #C7EDCC;
   // background-image: image-url("editor-bg.jpg");
 }
-.ui.container.post-form {
-  background-color: #FFFFFF;
-  // border: 1px solid #eeeeee;
-  // border-top: 5px solid #eeeeee;
-  // padding-top: 1em;
-  margin-top: 3em;
-  border-radius: 4px !important;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+// .ui.container.post-form {
+//   background-color: #FFFFFF;
+//   // border: 1px solid #eeeeee;
+//   // border-top: 5px solid #eeeeee;
+//   // padding-top: 1em;
+//   margin-top: 3em;
+//   border-radius: 4px !important;
+//   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+// }
+.post-title-div {
+  padding: 0.618em;
+  background-color: white;
 }
 .post-title-field {
   line-height: 30px !important;

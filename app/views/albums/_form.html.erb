@@ -1,6 +1,6 @@
-<%= form_for(@category, html: { class: "ui form", multipart: true }) do |f| %>
+<%= form_for(@album, html: { class: "ui form", multipart: true }) do |f| %>
 
-<% if @category.errors.any? %>
+<% if @album.errors.any? %>
 <!-- <script>
   $(".ui.form").addClass("error");
   $(".field_with_errors").parent().addClass("error");
@@ -9,11 +9,11 @@
   <div class="ui error message">
     <div class="header">
       The form contains
-      <%= pluralize(@category.errors.count, "error") %>.
+      <%= pluralize(@microblog.errors.count, "error") %>.
     </div>
 
     <ul class="list">
-      <% @category.errors.full_messages.each do |msg| %>
+      <% @album.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
       <% end %>
     </ul>
@@ -23,26 +23,25 @@
 <br/>
 <div class="field">
   <!-- <%= f.label :category_name, "类名" %> -->
-  <%= f.text_field :category_name, class: "category-input", placeholder: "类名", autocomplete: "off" %>
+  <%= f.text_area :description, class: "category-input", placeholder: "文本", autocomplete: "off" %>
 </div>
+
+
+
+
 
 <div class="field">
-  <%= f.text_field :category_brief, class: "category-input", placeholder: "简要", autocomplete: "off" %>
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
 </div>
 
-<div class="field">
-  <%= f.file_field :category_image, accept: 'image/jpeg,image/gif,image/png' %>
-  <!-- <%= f.text_field :category_image, class: "category-input", placeholder: "分类图（请填写图片url）", autocomplete: "off" %> -->
-</div>
-
-<% if @category.category_image? %>
-<%= image_tag(@category.category_image.url, class: "ui image fixheight imgshow tempimgshow") %>
+<% if @album.picture? %>
+<%= image_tag(@album.picture.url, class: "ui image fixheight imgshow tempimgshow") %>
 <% else %>
 <%= image_tag("http://www.semantic-ui.cn/images/wireframe/image.png", class: "ui image fixheight imgshow tempimgshow") %>
 <% end %>
 <br/>
 
-<% if @category.errors.any? %>
+<% if @album.errors.any? %>
 <script>
   $(".ui.form").addClass("error");
   $(".field_with_errors").parent().addClass("error");
@@ -52,8 +51,9 @@
 <%= f.submit "完成", class: "ui submit button" %>
 <% end %>
 
+
 <script type="text/javascript">
-  $('#category_category_image').bind('change', function() {
+  $('#album_picture').bind('change', function() {
     size_in_megabytes = this.files[0].size/1024/1024;
     if (size_in_megabytes > 5) {
       alert('Maximum file size is 5MB. Please choose a smaller file.');

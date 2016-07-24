@@ -1,7 +1,7 @@
 <div>
-    <% @category.posts.reverse.each do |post| %>
-    <div class="posts-timeline">
-      <div class="post-timeline">
+  <% @category.posts.reverse.each do |post| %>
+  <div class="posts-timeline">
+    <div class="post-timeline">
       <h2 class="ui grey header">
         <div class="post-timeline-dot"></div>
         <%= post.created_at.localtime.strftime("%Y-%m-%d") %>
@@ -17,6 +17,6 @@
         <%= post_music(post.post_image) %>
       </div>
     </div>
-    </div>
-    <% end %>
   </div>
+  <% end %>
+</div>

@@ -1,5 +1,8 @@
 <%= render 'categories/header' %>
 <div class="ui container category-block">
+  <!-- 特色图 begin-->
+  <!-- <%= image_tag @post.post_image.url if @post.post_image? %> 解除注释启用特色图，自己改css吧233333-->
+  <!-- 特色图 end-->
   <h1 class="ui center aligned grey header"><%= @post.post_title %></h1>
   <h5 class="ui grey header">
     <%= @post.created_at.localtime.strftime("%Y年%m月%d日") %>
@@ -17,4 +20,4 @@
   </div>
 
 </div>
-<%= render 'categories/footer' %>
+<!-- <%= render 'categories/footer' %> -->

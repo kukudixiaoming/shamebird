@@ -41,6 +41,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'mini_magick'
 # 用于在生产环境中上传图片
   gem 'fog'
+# 分页
+  gem 'will_paginate'
 
 group :development, :test do
   gem 'sqlite3'

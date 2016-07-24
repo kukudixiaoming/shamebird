@@ -22,7 +22,7 @@ class PostsController < ApplicationController
       @category = Category.find(params[:category_id])
       @post = @category.posts.new(post_params)
       if @post.save
-        redirect_to category_path(@category)
+        redirect_to category_path(@category) #bug
       else
         render 'new'
       end

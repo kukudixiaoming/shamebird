@@ -27,11 +27,30 @@ $(document).ready(function() {
     //optional options
     //markdown: true,
     toolbar: [
-      'title', 'bold', 'italic', 'underline', 'strikethrough', 'color',
+      'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', 'fontScale',
       /*'checklist',*/ '|', 'ol', 'ul', 'blockquote', 'hr', 'indent', 'outdent',
       'alignment', '|', 'code', 'table', 'link', 'image','emoji', 'markdown',
       'fullscreen'
     ],
+    upload: {
+
+   url: '/upload',
+
+   params: {
+
+     "authenticity_token": "#{form_authenticity_token.to_s}"
+
+   },
+
+   fileKey: 'upload_file',
+
+   connectionCount: 3,
+
+   leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+
+ },
+
+
     placeholder: '',
     pasteImage: true,
     defaultImage: '/images/image.png',
@@ -90,6 +109,48 @@ $(document).on('page:change',function(){
 $('.ui.accordion')
   .accordion()
 ;
+
+$('.ui.dropdown')
+  .dropdown()
+;
+
+// 执行的顺序很重要，一个位置跳动的bug终于解决了，汗。。。
+// 看来改bug也是需要转瞬即逝的灵感，不过我太机智了哈哈
+$('.imgshow').click(function() {
+
+var $modalImageSrc = $(this).attr('src');
+$('.microblog_image').attr('src', $modalImageSrc);
+
+var $microblogText = $(this).parent().prev().text();
+
+// 不起作用？
+// if($microblogText == null){
+//   $('.modal_description').parent().css('display','none !important');
+// }
+// else {
+//   $('.modal_description').text($microblogText);
+// }
+
+$('.modal_description').text($microblogText);
+
+var $albumLink = $(this).parent().prev().prev().children()
+var $albumEditLink = $albumLink.first().attr('href');
+var $albumDelLink = $albumLink.last().attr('href');
+$('.album_edit_link').attr('href', $albumEditLink);
+$('.album_del_link').attr('href', $albumDelLink);
+
+} )
+
+$('.ui.basic.modal')
+.modal({
+  inverted: true
+})
+.modal('attach events', '.imgshow', 'show')
+;
+
+
+
+
 });
 
 //********** iframe 的高度等于窗口高度 ！！！此处会影响网易云音乐的iframe ********** **********
