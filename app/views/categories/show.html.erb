@@ -2,7 +2,8 @@
 <div class="ui center aligned container category-block-border">
   <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
   <h1 class="ui grey header">
-    <%= image_tag(@category.category_image, class: "ui circular image", alt: @category.category_name) %>
+    <%= image_tag(@category.category_image.url, class: "ui circular image",
+    alt: @category.category_name) if @category.category_image? %>
     <div class="content">
       <%= @category.category_name %>
       <div class="sub header"><%= @category.category_brief %></div>
@@ -20,4 +21,3 @@
 <div class="ui container category-block">
   <%= which_posts_template(@category.id) %>
 </div>
-<%= render 'footer' %>

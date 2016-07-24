@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    params[:id] = "1" if params[:id] == nil
+    params[:id] = "1" if params[:id] == nil #bug
     @category = Category.find(params[:id])
     @categories = Category.all #例外，只是为了show视图的最上面
   end

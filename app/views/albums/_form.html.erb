@@ -1,0 +1,80 @@
+<%= form_for(@album, html: { class: "ui form", multipart: true }) do |f| %>
+
+<% if @album.errors.any? %>
+<!-- <script>
+  $(".ui.form").addClass("error");
+  $(".field_with_errors").parent().addClass("error");
+</script> -->
+<div id="error_explanation">
+  <div class="ui error message">
+    <div class="header">
+      The form contains
+      <%= pluralize(@microblog.errors.count, "error") %>.
+    </div>
+
+    <ul class="list">
+      <% @album.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+<br/>
+<div class="field">
+  <!-- <%= f.label :category_name, "类名" %> -->
+  <%= f.text_area :description, class: "category-input", placeholder: "文本", autocomplete: "off" %>
+</div>
+
+
+
+
+
+<div class="field">
+  <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+</div>
+
+<% if @album.picture? %>
+<%= image_tag(@album.picture.url, class: "ui image fixheight imgshow tempimgshow") %>
+<% else %>
+<%= image_tag("http://www.semantic-ui.cn/images/wireframe/image.png", class: "ui image fixheight imgshow tempimgshow") %>
+<% end %>
+<br/>
+
+<% if @album.errors.any? %>
+<script>
+  $(".ui.form").addClass("error");
+  $(".field_with_errors").parent().addClass("error");
+</script>
+<% end %>
+
+<%= f.submit "完成", class: "ui submit button" %>
+<% end %>
+
+
+<script type="text/javascript">
+  $('#album_picture').bind('change', function() {
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+
+
+      //   var $reader = new FileReader();
+      //   $reader.readAsDataURL(this.files[0]);
+      //   $reader.onloadend = function(){
+      //    $('.tempimgshow').attr('src', oFREvent.target.result);
+       //
+      //    alert(oFREvent.target.result);
+      //  }
+
+      //实时预览上传图片，上面被注释的代码也能实现这个功能
+      var $reader = new FileReader();
+      $reader.readAsDataURL(this.files[0]);
+      $reader.onloadend = function(){
+       $('.tempimgshow').attr('src', this.result);
+      //  alert(this.result);
+     }
+
+  });
+</script>

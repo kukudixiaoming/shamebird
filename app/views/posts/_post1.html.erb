@@ -1,5 +1,10 @@
 
 <!-- <%= image_tag(post1.post_image, class: "post-image", alt: post1.post_title) %> -->
+
+<!-- 特色图 begin-->
+<!-- <%= image_tag post1.post_image.url if post1.post_image? %> 解除注释启用特色图，自己改css吧233333-->
+<!-- 特色图 end-->
+
 <h1 class="ui center aligned header">
   <%= link_to category_post_path(@category, post1), class: "post-title-link" do %>
   <%= post1.post_title %>
