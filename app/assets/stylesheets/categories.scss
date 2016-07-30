@@ -51,21 +51,25 @@ a.post-title-link {
     border-radius: 0 !important;
 }
 }
-.ui.container.category-block-border {
+.category-block-border {
+  text-align: center;
   background-color: white;
   // padding: 1.7em 2em 1.5em;
   padding-top: 1.7em;
   padding-bottom: 1.5em;
-  margin-top: 2em;
+  // margin-top: 2em;
   border: 1px solid #DEDEDE;
   border-radius: 0.5em;
 }
-.ui.container.category-block {
+.category-block {
   background-color: white;
   // padding: 1.7em 2em 1.5em;
   padding-top: 1.7em;
   padding-bottom: 1.5em;
   margin-top: 2em;
+}
+.sb-main-content{
+  margin-top: 2.6em;
 }
 div.post-text {
   line-height: 1.9em;
@@ -76,11 +80,15 @@ div.post-text {
   padding-left: 10px;
 }
 div.copy-text{
+  text-align: center;
   line-height: 1.9em;
   font-weight: 400;
   font-size: 16px;
   // font-size: 1.4em;
   color: rgba(0, 0, 0, 0.7);
+}
+.pagination {
+    text-align: center;
 }
 //<!-- 固定宽高布局 Begin -->
 // img.post-image {

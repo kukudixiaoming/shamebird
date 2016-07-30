@@ -1,70 +1,69 @@
 <%= render 'categories/header' %>
 
-<div class="ui center aligned container category-block-border">
-  <h1 class="ui grey header">
-    <%= image_tag("https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1726094907,3327222643&fm=58", class: "ui circular image", alt: "纸条") %>
-    <div class="content">
-      影集
-      <div class="sub header">记录每一个清澈的瞬间</div>
-    </div>
-  </h1>
-  <br/>
-  <%= link_to '上传图片', new_album_path, data: { no_turbolink: true } %>
+<div class="ui centered grid">
+  <div class="sixteen wide mobile fourteen wide tablet ten wide computer column category-block">
 
-</div>
-
-<div class="ui container category-block">
-
-
-<!-- 瀑布流布局 -->
-  <div id="masonry" class="container-fluid">
-
-
-
-    <% @albums.reverse.each do |album| %>
-    <div style="display:none;">
-    <%= link_to '编辑', edit_album_path(album) %>
-    <%= link_to '删除', album_path(album), method:
-    :delete, data: {confirm: 'Are you sure?'} %>
-    </div>
-    <div style="display:none;">
-      <%= album.description %>
-    </div>
-    <div class="box">
-
-      <%= image_tag(album.picture.url, class: 'imgshow') if album.picture? %>
-
-    </div>
-    <% end %>
-<br/>
-
-  </div>
-<!-- 瀑布流布局 -->
-
-
-  <%= will_paginate %>
-
-</div>
-
-
-
-<div class="ui basic modal">
-    <div class="ui icon header"><i><img src="" class="microblog_image image" alt="" ></i> </div>
-    <div class="content">
-      <div class="modal_description description post-text">
+    <div class="ui center aligned category-block-border">
+      <h1 class="ui grey header">
+        <%= image_tag("https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1726094907,3327222643&fm=58", class: "ui circular image", alt: "纸条") %>
+        <div class="content">
+          影集
+          <div class="sub header">记录每一个清澈的瞬间</div>
         </div>
+      </h1>
+      <br/>
+      <%= link_to '上传图片', new_album_path, data: { no_turbolink: true } %>
+
     </div>
-    <div class="actions">
-      <a class="ui red cancel inverted button album_del_link"
-      data-confirm="确定要删除?" rel="nofollow" data-method="delete" href="">
-      <i class="remove icon"></i> 删除
-    </a>
-      <a class="ui green ok inverted button album_edit_link" href="">
-        <i class="checkmark icon"></i> 编辑
-      </a>
+
+    <div class="sb-main-content">
+
+      <!-- 瀑布流布局 -->
+      <div id="masonry" class="container-fluid">
+
+        <% @albums.reverse.each do |album| %>
+        <div style="display:none;">
+          <%= link_to '编辑', edit_album_path(album) %>
+          <%= link_to '删除', album_path(album), method:
+    :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
+        <div style="display:none;">
+          <%= album.description %>
+        </div>
+        <div class="box">
+
+          <%= image_tag(album.picture.url, class: 'imgshow') if album.picture? %>
+
+        </div>
+        <% end %>
+        <br/>
+
+      </div>
+      <!-- 瀑布流布局 -->
+
+      <%= will_paginate %>
+
     </div>
   </div>
-
+</div>
+<div class="ui basic modal">
+  <div class="ui icon header">
+    <i><img src="" class="microblog_image image" alt=""></i>
+  </div>
+  <div class="content">
+    <div class="modal_description description post-text"></div>
+  </div>
+  <div class="actions">
+    <a class="ui red cancel inverted button album_del_link" data-confirm="确定要删除?" rel="nofollow" data-method="delete" href="">
+      <i class="remove icon"></i>
+      删除
+    </a>
+    <a class="ui green ok inverted button album_edit_link" href="">
+      <i class="checkmark icon"></i>
+      编辑
+    </a>
+  </div>
+</div>
 
 <!-- <div class="ui modal">
   <div class="header">Header</div>
@@ -75,5 +74,3 @@
     <p></p>
   </div>
 </div> -->
-
-<!-- <%= render 'categories/footer' %> -->

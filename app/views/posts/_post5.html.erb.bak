@@ -1,6 +1,0 @@
-<!-- 该文件为 categories/show.html.erb.218.bak 中的固定宽高布局的 partial 文件 -->
-<div class="column">
-  <%= link_to "/categories/#{@category.id}/posts/#{post5.id}" do %>
-  <%= image_tag(post5.post_image, class: "post-image", alt: post5.post_title) %>
-  <% end %>
-</div>
