@@ -1,7 +1,7 @@
 <%= render 'header' %>
 
-<div class="ui centered grid">
-  <div class="fourteen wide mobile fourteen wide tablet ten wide computer column category-block">
+
+  <div class="ui container category-block">
 
     <div class="ui center aligned category-block-border">
       <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
@@ -44,5 +44,18 @@
       <% end %>
     </div>
   </div>
-</div>
+
 <br/>
+
+<div class="ui basic modal">
+  <div class="ui-icon-header">
+    <i><img src="" class="microblog_image image" alt=""></i>
+  </div>
+  <div class="content">
+    <div class="modal_description description post-text"></div>
+  </div>
+  <!-- <div class="actions">
+      <div class="ui red basic cancel inverted button"><i class="remove icon"></i> No </div>
+      <div class="ui green ok inverted button"><i class="checkmark icon"></i> Yes </div>
+    </div> -->
+</div>

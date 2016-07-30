@@ -2,12 +2,16 @@
 // a, a:active, a:hover, a:focus {
 //   color: #767676 !important;
 // }
+html {
+  font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB",
+  "Microsoft YaHei","微软雅黑",Arial,sans-serif;
+}
 .ui.header {
   font-weight: lighter !important;
 }
-.debug {
-  margin-left: 300px;
-}
+// .debug {
+//   margin-left: 300px;
+// }
 input.ui.fluid.large.submit.button {
     border: 2px solid rgb(118, 118, 118) !important;
     border-radius: 0.28571429rem !important;
