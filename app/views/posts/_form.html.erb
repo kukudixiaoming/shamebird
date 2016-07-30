@@ -1,6 +1,6 @@
-<div class="ui grid">
-  <div class="one wide tablet two wide computer column"></div>
-  <div class="ten wide column post-form">
+<div class="ui grid center-aligned-no-lr-margin">
+  <div class="two wide computer only column"></div>
+  <div class="sixteen wide mobile sixteen wide tablet ten wide computer column post-form">
     <%= form_for([@category, @post], html: { class: "ui form", multipart: true }) do |f| %>
     <!-- 也可以将 [@category, @post] 改为 [:category, @post] -->
     <% if @post.errors.any? %>
@@ -35,7 +35,7 @@
       <%= f.text_area :post_text, id: "editor" %>
     </div>
   </div>
-  <div class="four wide tablet two wide computer column">
+  <div class="sixteen wide mobile sixteen wide tablet two wide computer column">
     <br/><br/><br/><br/>
     <div style="background:white;padding:0.618em;">
       <div class="field">
@@ -62,7 +62,7 @@
       <% end %>
     </div>
   </div>
-      <div class="one wide tablet two wide computer column"></div>
+      <div class="two wide computer only column"></div>
     </div>
 
     <!-- <div class="ui container post-form">

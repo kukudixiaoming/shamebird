@@ -1,23 +1,24 @@
 <%= render 'categories/header' %>
-<div class="ui container category-block">
-  <!-- 特色图 begin-->
-  <!-- <%= image_tag @post.post_image.url if @post.post_image? %> 解除注释启用特色图，自己改css吧233333-->
-  <!-- 特色图 end-->
-  <h1 class="ui center aligned grey header"><%= @post.post_title %></h1>
-  <h5 class="ui grey header">
-    <%= @post.created_at.localtime.strftime("%Y年%m月%d日") %>
-    <%= link_to "编辑", edit_category_post_path(@category, @post), data: { no_turbolink: true } %>
-    <%= link_to '删除', category_post_path(@category, @post), method: :delete, data: {confirm:'确定要删除吗？'} %>
-  </h5>
-  <div class="post-text post-page"><%= raw @post.post_text %></div>
-  <br/>
-  <br/>
-  <div class="ui comments">
-    <%= render 'comments/form' %>
-    <!-- <h3 class="ui grey dividing header">评论</h3> -->
-    <h3 class="ui grey header">评论</h3>
-    <%= render @post.comments.reverse %>
-  </div>
+<div class="ui centered grid">
+  <div class="fourteen wide mobile fourteen wide tablet ten wide computer column category-block">
+    <!-- 特色图 begin-->
+    <!-- <%= image_tag @post.post_image.url if @post.post_image? %> 解除注释启用特色图，自己改css吧233333-->
+    <!-- 特色图 end-->
+    <h1 class="ui center aligned grey header"><%= @post.post_title %></h1>
+    <h5 class="ui grey header">
+      <%= @post.created_at.localtime.strftime("%Y年%m月%d日") %>
+      <%= link_to "编辑", edit_category_post_path(@category, @post), data: { no_turbolink: true } %>
+      <%= link_to '删除', category_post_path(@category, @post), method: :delete, data: {confirm:'确定要删除吗？'} %>
+    </h5>
+    <div class="post-text post-page"><%= raw @post.post_text %></div>
+    <br/>
+    <br/>
+    <div class="ui comments">
+      <%= render 'comments/form' %>
+      <!-- <h3 class="ui grey dividing header">评论</h3> -->
+      <h3 class="ui grey header">评论</h3>
+      <%= render @post.comments.reverse %>
+    </div>
 
+  </div>
 </div>
-<!-- <%= render 'categories/footer' %> -->

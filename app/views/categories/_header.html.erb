@@ -7,7 +7,8 @@
     <div class="content">羞耻的噜噜 <div class="sub header">游戏，美术，音乐与二次元</div>
   </div>
 </h3> -->
-  <div class="ui center aligned container">
+<div class="ui centered grid">
+  <div class="fourteen wide mobile fourteen wide tablet ten wide computer center aligned column">
     <h1 class="ui header">
       <% @categories.each do |category| %>
       <!-- <%= image_tag(category.category_image, class: "ui circular image", alt: category.category_name) %> -->
@@ -23,5 +24,6 @@
       影集
       <% end %>
     </h1>
+  </div>
   </div>
 </div>
