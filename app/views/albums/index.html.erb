@@ -1,7 +1,7 @@
 <%= render 'categories/header' %>
 
-<div class="ui centered grid">
-  <div class="sixteen wide mobile fourteen wide tablet ten wide computer column category-block">
+
+  <div class="ui container category-block">
 
     <div class="ui center aligned category-block-border">
       <h1 class="ui grey header">
@@ -45,15 +45,17 @@
 
     </div>
   </div>
-</div>
+
 <div class="ui basic modal">
-  <div class="ui icon header">
+  <!-- 原先的，下面的语句替代了这个<div class="ui icon header"> -->
+    <div class="ui-icon-header">
     <i><img src="" class="microblog_image image" alt=""></i>
   </div>
   <div class="content">
     <div class="modal_description description post-text"></div>
   </div>
-  <div class="actions">
+  <!-- 原先的，下面的语句替代了这个<div class="actions"> -->
+  <div class="ui-icon-header">
     <a class="ui red cancel inverted button album_del_link" data-confirm="确定要删除?" rel="nofollow" data-method="delete" href="">
       <i class="remove icon"></i>
       删除
