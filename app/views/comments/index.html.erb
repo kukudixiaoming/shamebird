@@ -1,3 +1,4 @@
+<% @comments.each do |comment| %>
 <div class="comment" id="<%= comment.id %>">
   <a class="avatar">
     <img src="https://tse3-mm.cn.bing.net/th?id=OIP.M0cdbfd084192a2a859fe89dce56e1348H0&w=148&h=150&c=7&rs=1&qlt=90&o=4&pid=1.1">
@@ -13,7 +14,7 @@
             %> -->
 
         <%= comment.created_at %>
-        <%= link_to '删除', [@category, comment.post, comment],# 为什么要这样写
+        <%= link_to '删除', category_post_comment_path(@category, @post, comment),
          method: :delete, data: {confirm:'确定要删除吗？'} %>
       </span>
     </div>
@@ -22,3 +23,4 @@
     </div>
   </div>
 </div>
+<% end %>

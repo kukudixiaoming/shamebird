@@ -31,6 +31,7 @@ class PostsController < ApplicationController
   def show
     @category = Category.find(params[:category_id])
     @post = Post.find(params[:id])
+    # @comments = @post.comments
     # @comment = @post.comments.new
     @categories = Category.all #例外，只是为了show视图的最上面
   end

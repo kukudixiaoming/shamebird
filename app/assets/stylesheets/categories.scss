@@ -64,9 +64,9 @@ a.post-title-link {
 .category-block {
   background-color: white;
   // padding: 1.7em 2em 1.5em;
-  padding-top: 1.7em;
-  padding-bottom: 1.5em;
-  margin-top: 2em;
+  padding-top: 1.6em !important;
+  margin-bottom: 1.5em !important;
+  margin-top: 1em !important;
 }
 .sb-main-content{
   margin-top: 2.6em;
@@ -77,7 +77,8 @@ div.post-text {
   font-size: 17px;
   // font-size: 1.4em;
   color: rgba(0, 0, 0, 0.5);
-  padding-left: 10px;
+  // padding-left: 10px;
+  padding-bottom: 0.61em;
 }
 div.copy-text{
   text-align: center;
