@@ -40,7 +40,9 @@
         <%= post.created_at.localtime.strftime("%Y年%m月%d日") %>
       </h5>
       <!-- <div class="post-text"><%= sanitize post.post_text %></div> -->
-      <div class="post-text"><%= raw cutpost(post.post_text, category_post_path(@category, post)) %></div>
+      <div class="post-text editor-style">
+        <%= raw cutpost(post.post_text, category_post_path(@category, post)) %>
+      </div>
       <% end %>
     </div>
   </div>

@@ -22,6 +22,12 @@ class CommentsController < ApplicationController
     redirect_to category_post_path(@category, @post)
   end
 
+  def index
+    @category = Category.find(params[:category_id])
+    @post = Post.find(params[:post_id])
+    @comments = Comment.all
+  end
+
   def destroy
     @category = Category.find(params[:category_id])
     @post = Post.find(params[:post_id])
