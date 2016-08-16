@@ -1,5 +1,7 @@
 class AlbumsController < ApplicationController
 
+  http_basic_authenticate_with name:"lulu", password:"secret", except: [:index, :show]
+
   def new
     @album = Album.new
   end
@@ -15,7 +17,7 @@ class AlbumsController < ApplicationController
 
   def index
     @categories = Category.all
-    @albums = Album.paginate(page: params[:page], per_page: 24)
+    @albums = Album.paginate(page: params[:page], per_page: 12)
   end
 
   def edit

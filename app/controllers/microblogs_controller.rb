@@ -1,4 +1,7 @@
 class MicroblogsController < ApplicationController
+
+  http_basic_authenticate_with name:"lulu", password:"secret", except: [:index, :show]
+  
   def new
     @microblog = Microblog.new
   end

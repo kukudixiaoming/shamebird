@@ -1,29 +1,60 @@
 
 
 
-<div class="full-width-header top-header">
+<div class="full-width-header ui container">
   <!-- <h3 class="ui header">
     <img src="https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1726094907,3327222643&fm=58" class="ui circular image">
     <div class="content">羞耻的噜噜 <div class="sub header">游戏，美术，音乐与二次元</div>
   </div>
 </h3> -->
-<div class="ui centered grid">
-  <div class="fourteen wide mobile fourteen wide tablet ten wide computer center aligned column">
-    <h1 class="ui header">
+<div class="ui grid">
+  <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
+
+    <h1 class="site-header">
+      羞耻的噜噜
+    </h1>
+    <div class="site-sub-header">羞耻如我，不一样的烟火</div>
+
+  </div>
+  <div class="twelve wide computer only right aligned column">
+    <br/>
+    <h3 class="site-header">
       <% @categories.each do |category| %>
       <!-- <%= image_tag(category.category_image, class: "ui circular image", alt: category.category_name) %> -->
       <%= link_to category.category_name, category_path(category),
     title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;|&nbsp;&nbsp;
       <% end %>
       <%= link_to microblogs_path, class: "category-header-link" do %>
       纸条
       <% end %>
-      &nbsp;&nbsp;&nbsp;&nbsp;
+      &nbsp;&nbsp;|&nbsp;&nbsp;
       <%= link_to albums_path, class: "category-header-link" do %>
       影集
       <% end %>
-    </h1>
+    </h3>
+
   </div>
+
+  <div class="sixteen wide mobile sixteen wide tablet only column">
+    <h3 class="site-header">
+      <% @categories.each do |category| %>
+      <!-- <%= image_tag(category.category_image, class: "ui circular image", alt: category.category_name) %> -->
+      <%= link_to category.category_name, category_path(category),
+    title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <% end %>
+      <%= link_to microblogs_path, class: "category-header-link" do %>
+      纸条
+      <% end %>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <%= link_to albums_path, class: "category-header-link" do %>
+      影集
+      <% end %>
+    </h3>
+
+  </div>
+
+
   </div>
 </div>

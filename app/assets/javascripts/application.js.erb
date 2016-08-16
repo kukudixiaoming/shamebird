@@ -17,6 +17,8 @@
 //= require semantic-ui
 // simditor 编辑器 javascripts
 //= require simditor
+//= require highlight
+//= require infinitescroll
 //= require_tree .
 
 
@@ -28,7 +30,7 @@ $(document).ready(function() {
     //markdown: true,
     toolbar: [
       'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', 'fontScale',
-      /*'checklist',*/ '|', 'ol', 'ul', 'blockquote', 'hr', 'indent', 'outdent',
+      'checklist', '|', 'ol', 'ul', 'blockquote', 'hr', 'indent', 'outdent',
       'alignment', '|', 'code', 'table', 'link', 'image','emoji', 'markdown',
       'fullscreen'
     ],
@@ -84,8 +86,12 @@ $(document).on('page:change',function(){
     $(".cover img").addClass("imgshow");
 });
 
-//********** 瀑布流布局 **********
+//********** 瀑布流+无限加载布局 **********
 $(document).on('page:change',function(){
+
+
+
+
     var $container = $('#masonry');
     $container.imagesLoaded(function() {
         $container.masonry({
@@ -96,6 +102,33 @@ $(document).on('page:change',function(){
                 isResizableL: true
             });
      });
+
+
+     $container.infinitescroll({
+             navSelector: ".pagination",      //页面分页元素--本页的导航，意思就是一个可以触发ajax函数的模块
+             nextSelector: ".pagination a[rel=next]",  //下一页的导航
+             itemSelector: ".box" ,             //此处我用了类选择器，选择的是你要加载的那一个块（每次载入的数据放的地方）
+            //  animate: true,                          //加载时候时候需要动画，默认是false
+            //  maxPage: 3,                            //最大的页数，也就是滚动多少次停。这个页码必须得要你从数据库里面拿
+            //  debug : true,
+             pixelsFromNavToBottom: 300,
+             loading: {
+    finishedMsg: '没有更多啦。',
+    loadingText:'加载中',
+    // img: 'images/loading.gif'
+}
+         },
+         function( newElements ) {
+    //首先隐藏
+    var $newElems = $( newElements ).css({ opacity: 0 });
+    $newElems.imagesLoaded(function(){
+      //布局时显示
+      $newElems.animate({ opacity: 1 });
+      $container.masonry( 'appended', $newElems, true );
+    });
+  });
+
+
 });
 
 //********** me#paper 点击显示 category_id **********
@@ -140,7 +173,7 @@ var $albumDelLink = $albumLink.last().attr('href');
 $('.album_edit_link').attr('href', $albumEditLink);
 $('.album_del_link').attr('href', $albumDelLink);
 
-} )
+});
 
 $('.ui.basic.modal')
 .modal({
@@ -169,7 +202,7 @@ $(document).on('page:change',function(){
 var $str = $(".post-text").html().replace("moremore","");
 $(".post-text.post-page").html($str);
 });
-
+//********** 高亮 **********
 $(document).on('page:change',function(){
 hljs.initHighlightingOnLoad();
 });

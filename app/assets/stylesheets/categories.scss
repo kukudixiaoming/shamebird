@@ -7,15 +7,15 @@
 //   background-color: #C7EDCC;
 //   background-image: image-url("editor-bg.jpg");
 // }
-div.top-header{
-  padding: 1.7em 1em 1em 1em;
-}
+// div.top-header{
+//   padding: 1.7em 1em 1em 1em;
+// }
 div.full-width-header{
   width: 100%;
   // background-color: #FBFBFB;
   padding-top: 1.7em;
   padding-bottom: 1em;
-  border-bottom: 1px solid #DEDEDE;
+  // border-bottom: 1px solid #DEDEDE;
 }
 div.full-width-footer{
   width: 100%;
@@ -31,17 +31,55 @@ div.full-width-footer{
 // a, a:active, a:hover, a:focus {
 //   color: #767676 !important;
 // }
+.site-header{
+  color: black !important;
+}
+.inline-block-site-header{
+  // color: white;
+  color: black !important;
+  display: inline-block;
+  // background: black;
+}
+.inline-block-site-sub-header{
+  color: white;
+  display: inline-block;
+  background: #eded00;
+}
+.site-sub-header {
+    color: #fbbd08;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.black-header {
+  color: black !important;
+}
 a.category-header-link {
-  color: #767676 !important;
+  color: black !important;
   &:active, &:hover, &:focus {
-    color: #767676 !important;
+    // color: #ff2333 !important;
+    color: #dd2333 !important;
   }
 }
+.category-header-link-click {
+  color: white !important;
+  background-color: #767676;
+  border-radius: 0.3em;
+}
+.post-special-image{
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
 a.post-title-link {
-  color: #5F5F5F !important;
+  font-size: 3.0rem;
+  color: black !important;
   &:active, &:hover, &:focus {
-    color: #767676 !important;
+    // color: #ff0016 !important;
+    color: #dd2333 !important;
   }
+}
+.editor-style p {
+  color: black !important;
 }
 .category-input {
     border: 2px dashed #E0E1E2 !important;
@@ -52,13 +90,14 @@ a.post-title-link {
 }
 }
 .category-block-border {
+  // display: none;
   text-align: center;
   background-color: white;
   // padding: 1.7em 2em 1.5em;
   padding-top: 1.7em;
   padding-bottom: 1.5em;
   // margin-top: 2em;
-  border: 1px solid #DEDEDE;
+  border: 3px dashed #dd2333;
   border-radius: 0.5em;
 }
 .category-block {
@@ -67,6 +106,14 @@ a.post-title-link {
   padding-top: 1.6em !important;
   margin-bottom: 1.5em !important;
   margin-top: 1em !important;
+}
+
+.cat-link a {
+  color: black !important;
+  &:active, &:hover, &:focus {
+    color: #ff2333 !important;
+  }
+
 }
 .sb-main-content{
   margin-top: 2.6em;
@@ -83,10 +130,10 @@ div.post-text {
 div.copy-text{
   text-align: center;
   line-height: 1.9em;
-  font-weight: 400;
+  font-weight: 700;
   font-size: 16px;
   // font-size: 1.4em;
-  color: rgba(0, 0, 0, 0.7);
+  color: black;
 }
 .pagination {
     text-align: center;
@@ -115,5 +162,6 @@ div.copy-text{
   .box img {
   max-width: 100%;
   border-radius: 0.3em;
+  border: 1px solid #EEE;
 }
 // <!-- 瀑布流布局 End-->

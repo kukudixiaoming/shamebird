@@ -5,15 +5,17 @@
 
     <div class="ui center aligned category-block-border">
 
-      <h1 class="ui grey header">
+      <h1 class="ui header">
         <%= image_tag("https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=1726094907,3327222643&fm=58", class: "ui circular image", alt: "纸条") %>
         <div class="content">
           纸条
-          <div class="sub header">记录每一个清澈的瞬间</div>
+          <div class="sub header black-header">记录每一个清澈的瞬间</div>
         </div>
       </h1>
       <br/>
+      <div class="cat-link">
       <%= link_to '+MB~骚年噜一发', new_microblog_path, data: { no_turbolink: true } %>
+    </div>
 
     </div>
 
@@ -24,14 +26,14 @@
       <% @microblogs.reverse.each do |mb| %>
       <div class="posts-timeline">
         <div class="post-timeline">
-          <h3 class="ui grey header">
+          <h3 class="site-sub-header">
             <div class="post-timeline-dot"></div>
-            &nbsp;&nbsp;&nbsp;<%= mb.created_at.localtime.strftime("%Y-%m-%d") %>
+            &nbsp;&nbsp;&nbsp;<i class="black-color"><%= mb.created_at.localtime.strftime("%Y-%m-%d") %></i>
             &nbsp;&nbsp;&nbsp;<%= link_to '编辑', edit_microblog_path(mb) %>
             &nbsp;&nbsp;&nbsp;<%= link_to '删除', microblog_path(mb), method:
           :delete, data: {confirm: 'Are you sure?'} %>
           </h3>
-          <div class="post-text">
+          <div class="post-text black-color">
             <!-- <%= link_to microblog_path(mb), class: "post-title-link" do %>
           <%= sanitize mb.text %><!--#bug-->
             <!-- <% end %> -->
