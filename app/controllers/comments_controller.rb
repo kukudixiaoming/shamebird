@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
 
+  http_basic_authenticate_with name:"lulu", password:"secret", only: :destroy
+
   def create
     @categories = Category.all #我也不知道为什么要有这个，但没有这个会有错误
                                #undefined method `each' for nil:NilClass

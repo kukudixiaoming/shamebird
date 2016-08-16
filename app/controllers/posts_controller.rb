@@ -1,4 +1,7 @@
 class PostsController < ApplicationController
+
+  http_basic_authenticate_with name:"lulu", password:"secret", except: [:index, :show]
+  
   def new
     @category = Category.find(params[:category_id])
     @post = @category.posts.new
