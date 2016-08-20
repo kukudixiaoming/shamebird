@@ -1,42 +1,42 @@
 <%= render 'categories/header' %>
-  <div class="ui container category-block">
-    <!-- 特色图 begin-->
-    <!-- <%= image_tag @post.post_image.url if @post.post_image? %> 解除注释启用特色图，自己改css吧233333-->
-    <!-- 特色图 end-->
-    <h1 class="site-header"><%= @post.post_title %></h1>
-    <h5 class="site-sub-header">
-      <%= @post.created_at.localtime.strftime("%Y年%m月%d日") %>
-      <%= link_to "编辑", edit_category_post_path(@category, @post), data: { no_turbolink: true } %>
-      <%= link_to '删除', category_post_path(@category, @post), method: :delete, data: {confirm:'确定要删除吗？'} %>
-    </h5>
-    <div class="post-text post-page editor-style">
-      <!-- <%= sanitize(@post.post_text) %> -->
-      <%= raw(@post.post_text) %>
-    </div>
-    <br/>
-    <!-- 版权声明 -->
-    <h4 class="ui grey header" style="display:none;">
+<div class="ui container category-block">
+  <!-- 特色图 begin-->
+  <!-- <%= image_tag @post.post_image.url if @post.post_image? %> 解除注释启用特色图，自己改css吧233333-->
+  <!-- 特色图 end-->
+  <h1 class="site-header"><%= @post.post_title %></h1>
+  <h5 class="site-sub-header">
+    <%= @post.created_at.localtime.strftime("%Y年%m月%d日") %>
+    <%= link_to "编辑", edit_category_post_path(@category, @post), data: {no_turbolink: true} %>
+    <%= link_to '删除', category_post_path(@category, @post), method: :delete, data: {confirm: '确定要删除吗？'} %>
+  </h5>
+  <div class="post-text post-page editor-style">
+    <!-- <%= sanitize(@post.post_text) %> -->
+    <%= raw(@post.post_text) %>
+  </div>
+  <br/>
+  <!-- 版权声明 -->
+  <h4 class="ui grey header" style="display:none;">
     最后编辑时间为: <%= @post.updated_at.localtime %><br/>
-    本文由 kukudixiaoming 创作，采用 <a href = "https://creativecommons.org/licenses/by/4.0/">
+    本文由 kukudixiaoming 创作，采用 <a href="https://creativecommons.org/licenses/by/4.0/">
     知识共享署名 4.0 </a> 国际许可协议进行许可<br/>可自由转载、引用，文章持续更新，转载请署名作者且注明文章出处。
   </h4>
-    <br/>
-    <div class="ui comments">
+  <br/>
+  <div class="ui comments">
 
-      <!-- <h3 class="ui grey dividing header">评论</h3> -->
-      <h3 class="ui grey header">评论</h3>
-      <h4 class="ui grey header">
+    <!-- <h3 class="ui grey dividing header">评论</h3> -->
+    <h3 class="ui header">评论</h3>
+    <h4 class="ui header">
       <% if @post.comments.count == 0 %>
-        还没有评论(ｏ・_・)ノ”(ノ_<。)
+          <h3 class="site-sub-header">还没有评论(ｏ・_・)ノ”(ノ_<。)</h3>
       <% else %>
-        已有<%= @post.comments.count %>条评论
+          已有<%= @post.comments.count %>条评论
       <% end %>
-      </h4>
-      <%= render @post.comments %>
-      <%= render 'comments/form' %>
-    </div>
-
+    </h4>
+    <%= render @post.comments %>
+    <%= render 'comments/form' %>
   </div>
+
+</div>
 
 <div class="ui basic modal">
   <div class="ui-icon-header">

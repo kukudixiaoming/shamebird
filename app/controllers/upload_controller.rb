@@ -19,16 +19,16 @@ class UploadController < ApplicationController
       file_list << file_real_path
     end
     logger.info file_real_path
-    render json: {:success=>success, :msg=>msg,:file_path=>"/#{file_real_path}" }
+    render json: {:success => success, :msg => msg, :file_path => "/#{file_real_path}"}
   end
 
   private
 
   def save_file(file)
     extname = file.content_type.match(/^image\/(gif|png|jpg|jpeg){1}$/).to_a[1]
-    filename = File.basename(file.original_filename,'.*')
-    uri = File.join('uploads','images',"#{DateTime.now.strftime('%Y/%m%d/%H%M%S')}_#{SecureRandom.hex(4)}_.#{extname}")
-    save_path = Rails.root.join('public',uri)
+    filename = File.basename(file.original_filename, '.*')
+    uri = File.join('uploads', 'images', "#{DateTime.now.strftime('%Y/%m%d/%H%M%S')}_#{SecureRandom.hex(4)}_.#{extname}")
+    save_path = Rails.root.join('public', uri)
     file_dir = File.dirname(save_path)
 
     FileUtils.mkdir_p(file_dir) unless Dir.exists?(file_dir)

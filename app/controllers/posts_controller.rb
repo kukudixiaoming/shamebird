@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 
-  http_basic_authenticate_with name:"lulu", password:"secret", except: [:index, :show]
-  
+  http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
+
   def new
     @category = Category.find(params[:category_id])
     @post = @category.posts.new
@@ -21,15 +21,15 @@ class PostsController < ApplicationController
   #   end
   # end
 
-    def create
-      @category = Category.find(params[:category_id])
-      @post = @category.posts.new(post_params)
-      if @post.save
-        redirect_to category_path(@category) #bug
-      else
-        render 'new'
-      end
+  def create
+    @category = Category.find(params[:category_id])
+    @post = @category.posts.new(post_params)
+    if @post.save
+      redirect_to category_path(@category) #bug
+    else
+      render 'new'
     end
+  end
 
   def show
     @category = Category.find(params[:category_id])
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
     # @post = Post.find(params[:id]) 这样写也不会出错
     @post = @category.posts.find(params[:id])
     if @post.update(post_params)
-       redirect_to category_path(@category)
+      redirect_to category_path(@category)
       # redirect_to category_post_path(@category, @post)
     else
       render 'edit'
@@ -71,7 +71,7 @@ class PostsController < ApplicationController
   end
 
   private
-    def post_params
-      params.require(:post).permit(:post_title, :post_text, :post_image)
-    end
+  def post_params
+    params.require(:post).permit(:post_title, :post_text, :post_image)
+  end
 end

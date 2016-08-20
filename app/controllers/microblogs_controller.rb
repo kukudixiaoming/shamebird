@@ -1,7 +1,7 @@
 class MicroblogsController < ApplicationController
 
-  http_basic_authenticate_with name:"lulu", password:"secret", except: [:index, :show]
-  
+  http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
+
   def new
     @microblog = Microblog.new
   end
@@ -44,8 +44,8 @@ class MicroblogsController < ApplicationController
   end
 
   private
-    def microblog_params
-      params.require(:microblog).permit(:text, :photo, :music)
-    end
+  def microblog_params
+    params.require(:microblog).permit(:text, :photo, :music)
+  end
 
 end

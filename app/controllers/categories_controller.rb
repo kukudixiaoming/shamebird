@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  http_basic_authenticate_with name:"lulu", password:"secret", except: [:index, :show]
+  http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
 
   def new
     @category = Category.new
@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
   end
 
   private
-    def category_params
-      params.require(:category).permit(:category_name, :category_brief, :category_image)
-    end
+  def category_params
+    params.require(:category).permit(:category_name, :category_brief, :category_image)
+  end
 end

@@ -12,8 +12,8 @@
     </h1>
     <br/>
     <div class="cat-link">
-    <%= link_to '上传图片', new_album_path, data: { no_turbolink: true } %>
-  </div>
+      <%= link_to '上传图片', new_album_path, data: {no_turbolink: true} %>
+    </div>
   </div>
 
   <div class="sb-main-content">
@@ -22,19 +22,19 @@
     <div id="masonry" class="container-fluid">
 
       <% @albums.reverse.each do |album| %>
-      <div style="display:none;">
-        <%= link_to '编辑', edit_album_path(album) %>
-        <%= link_to '删除', album_path(album), method:
-    :delete, data: {confirm: 'Are you sure?'} %>
-      </div>
-      <div style="display:none;">
-        <%= album.description %>
-      </div>
-      <div class="box">
+          <div style="display:none;">
+            <%= link_to '编辑', edit_album_path(album) %>
+            <%= link_to '删除', album_path(album), method:
+                :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
+          <div style="display:none;">
+            <%= album.description %>
+          </div>
+          <div class="box">
 
-        <%= image_tag(album.picture.url, class: 'imgshow') if album.picture? %>
+            <%= image_tag(album.picture.url, class: 'imgshow') if album.picture? %>
 
-      </div>
+          </div>
       <% end %>
 
     </div>
@@ -65,13 +65,3 @@
     </a>
   </div>
 </div>
-
-<!-- <div class="ui modal">
-  <div class="header">Header</div>
-  <div class="image content">
-    <img src="" class="microblog_image image" alt="" >
-    <div class="modal_description description post-text">
-    </div>
-    <p></p>
-  </div>
-</div> -->

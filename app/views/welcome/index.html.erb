@@ -1,14 +1,14 @@
 <div class="ui container">
   <br/>
   <!-- <h1 class="ui grey header">
-    <%= link_to "骚年", root_path, title:"不一样的烟火", id:"teenager" %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to "树洞", '#', title:"心里的小秘密", id:"tree-hole" %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to "知识", '#', title:"心里的小秘密", id:"knowledge" %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to "纸条", '#', title:"心里的小秘密", id:"paper" %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to "摄影", '#', title:"(●'◡'●)小黑屋", id:"photography" %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to "项目库", '#', title:"(●'◡'●)小黑屋", id:"project-library" %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to "事项", '#', title:"梦想起航我起床", id:"to-do" %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to "123", '#', title:"带我去一个神奇的地方", id:"go-123" %>
+    <%= link_to "骚年", root_path, title: "不一样的烟火", id: "teenager" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "树洞", '#', title: "心里的小秘密", id: "tree-hole" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "知识", '#', title: "心里的小秘密", id: "knowledge" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "纸条", '#', title: "心里的小秘密", id: "paper" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "摄影", '#', title: "(●'◡'●)小黑屋", id: "photography" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "项目库", '#', title: "(●'◡'●)小黑屋", id: "project-library" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "事项", '#', title: "梦想起航我起床", id: "to-do" %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to "123", '#', title: "带我去一个神奇的地方", id: "go-123" %>
   </h1> -->
 
 
@@ -16,10 +16,10 @@
 
 
     <h2 class="ui header">你好!</h2>
-      <h3 class="ui header">
-        当你看到下面这段问候时，表明kdas已经安装成功并且可以正常运行了(=￣ω￣=)。
-      </h3>
-<pre>
+    <h3 class="ui header">
+      当你看到下面这段问候时，表明kdas已经安装成功并且可以正常运行了(=￣ω￣=)。
+    </h3>
+    <pre>
 『
   欢迎使用KDAS！KDAS是一个简单、开源的blog程序，使用rails构建。
   歡迎使用KDAS！ KDAS是一個簡單、開源的blog程序，使用rails構建。
@@ -37,16 +37,17 @@
       主淫的名字叫什么捏？邮箱是多少捏？密码是什么捏？窝叫什么名字捏？
     </h3>
 
-      <div class="ui input">
-      <input type="text" class= "category-input" placeholder="用户名"><br/>
-      <input type="text" class= "category-input" placeholder="邮箱"><br/>
-      <input type="text" class= "category-input" placeholder="密码"><br/>
-      <input type="text" class= "category-input" placeholder="blog名字">
-      </div>
-      <h3 class="ui header">新建分类，选择模版 </h3>
-      <h3 class="ui header">
+    <div class="ui input">
+      <input type="text" class="category-input" placeholder="用户名"><br/>
+      <input type="text" class="category-input" placeholder="邮箱"><br/>
+      <input type="text" class="category-input" placeholder="密码"><br/>
+      <input type="text" class="category-input" placeholder="blog名字">
+    </div>
+    <h3 class="ui header">新建分类，选择模版 </h3>
+    <h3 class="ui header">
       <i class="trophy icon"></i>
-      <div class="content">Trending repos <div class="ui inline dropdown">
+      <div class="content">Trending repos
+        <div class="ui inline dropdown">
           <div class="text">today</div>
           <i class="dropdown icon"></i>
           <div class="menu">
@@ -60,33 +61,18 @@
     </h3>
 
 
-
-
-
-
   </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-<br/>
+  <br/>
   <div class="ui equal width grid">
     <% @categories.each do |category| %>
-    <div class="column">
-      <!-- <%= image_tag(category.category_image, class: "ui circular image", alt: category.category_name) %> -->
-      <h1 class="ui header">
-        <%= link_to category.category_name, category_path(category), title: category.category_brief, id: "category-#{category.id}" %>
-      </h1>
-    </div>
+        <div class="column">
+          <!-- <%= image_tag(category.category_image, class: "ui circular image", alt: category.category_name) %> -->
+          <h1 class="ui header">
+            <%= link_to category.category_name, category_path(category), title: category.category_brief, id: "category-#{category.id}" %>
+          </h1>
+        </div>
     <% end %>
   </div>
 </div>
