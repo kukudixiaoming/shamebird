@@ -1,84 +1,84 @@
-<%= form_for(@microblog, html: { class: "ui form", multipart: true }) do |f| %>
+<%= form_for(@microblog, html: {class: "ui form", multipart: true}) do |f| %>
 
-<% if @microblog.errors.any? %>
-<!-- <script>
-  $(".ui.form").addClass("error");
-  $(".field_with_errors").parent().addClass("error");
-</script> -->
-<div id="error_explanation">
-  <div class="ui error message">
-    <div class="header">
-      The form contains
-      <%= pluralize(@microblog.errors.count, "error") %>.
+    <% if @microblog.errors.any? %>
+        <!-- <script>
+          $(".ui.form").addClass("error");
+          $(".field_with_errors").parent().addClass("error");
+        </script> -->
+        <div id="error_explanation">
+          <div class="ui error message">
+            <div class="header">
+              The form contains
+              <%= pluralize(@microblog.errors.count, "error") %>.
+            </div>
+
+            <ul class="list">
+              <% @microblog.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+    <% end %>
+    <br/>
+    <div class="field">
+      <!-- <%= f.label :category_name, "类名" %> -->
+      <%= f.text_area :text, class: "category-input", placeholder: "文本", autocomplete: "off" %>
     </div>
 
-    <ul class="list">
-      <% @microblog.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<% end %>
-<br/>
-<div class="field">
-  <!-- <%= f.label :category_name, "类名" %> -->
-  <%= f.text_area :text, class: "category-input", placeholder: "文本", autocomplete: "off" %>
-</div>
-
-<!-- <div class="field">
+    <!-- <div class="field">
   <%= f.text_field :photo, class: "category-input", placeholder: "图片", autocomplete: "off" %>
 </div> -->
 
-<div class="field">
-  <%= f.text_field :music, class: "category-input", placeholder: "网易云音乐ID", autocomplete: "off" %>
-</div>
+    <div class="field">
+      <%= f.text_field :music, class: "category-input", placeholder: "网易云音乐ID", autocomplete: "off" %>
+    </div>
 
-<div class="field">
-  <%= f.file_field :photo, accept: 'image/jpeg,image/gif,image/png' %>
-</div>
+    <div class="field">
+      <%= f.file_field :photo, accept: 'image/jpeg,image/gif,image/png' %>
+    </div>
 
-<% if @microblog.photo? %>
-<%= image_tag(@microblog.photo.url, class: "ui image fixheight imgshow tempimgshow") %>
-<% else %>
-<%= image_tag("http://www.semantic-ui.cn/images/wireframe/image.png", class: "ui image fixheight imgshow tempimgshow") %>
-<% end %>
-<br/>
+    <% if @microblog.photo? %>
+        <%= image_tag(@microblog.photo.url, class: "ui image fixheight imgshow tempimgshow") %>
+    <% else %>
+        <%= image_tag("http://www.semantic-ui.cn/images/wireframe/image.png", class: "ui image fixheight imgshow tempimgshow") %>
+    <% end %>
+    <br/>
 
-<% if @microblog.errors.any? %>
-<script>
-  $(".ui.form").addClass("error");
-  $(".field_with_errors").parent().addClass("error");
-</script>
-<% end %>
+    <% if @microblog.errors.any? %>
+        <script>
+          $(".ui.form").addClass("error");
+          $(".field_with_errors").parent().addClass("error");
+        </script>
+    <% end %>
 
-<%= f.submit "完成", class: "ui submit button" %>
+    <%= f.submit "完成", class: "ui submit button" %>
 <% end %>
 
 
 <script type="text/javascript">
-  $('#microblog_photo').bind('change', function() {
-    size_in_megabytes = this.files[0].size/1024/1024;
+  $('#microblog_photo').bind('change', function () {
+    size_in_megabytes = this.files[0].size / 1024 / 1024;
     if (size_in_megabytes > 5) {
       alert('Maximum file size is 5MB. Please choose a smaller file.');
     }
 
 
-      //   var $reader = new FileReader();
-      //   $reader.readAsDataURL(this.files[0]);
-      //   $reader.onloadend = function(){
-      //    $('.tempimgshow').attr('src', oFREvent.target.result);
-       //
-      //    alert(oFREvent.target.result);
-      //  }
+    //   var $reader = new FileReader();
+    //   $reader.readAsDataURL(this.files[0]);
+    //   $reader.onloadend = function(){
+    //    $('.tempimgshow').attr('src', oFREvent.target.result);
+    //
+    //    alert(oFREvent.target.result);
+    //  }
 
-      //实时预览上传图片，上面被注释的代码也能实现这个功能
-      var $reader = new FileReader();
-      $reader.readAsDataURL(this.files[0]);
-      $reader.onloadend = function(){
-       $('.tempimgshow').attr('src', this.result);
+    //实时预览上传图片，上面被注释的代码也能实现这个功能
+    var $reader = new FileReader();
+    $reader.readAsDataURL(this.files[0]);
+    $reader.onloadend = function () {
+      $('.tempimgshow').attr('src', this.result);
       //  alert(this.result);
-     }
+    }
 
   });
 </script>

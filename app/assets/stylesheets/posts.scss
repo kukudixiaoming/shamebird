@@ -1,10 +1,11 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body.posts-new,body.posts-edit {
-  background-color: #C7EDCC;
-  // background-image: image-url("editor-bg.jpg");
+body.posts-new, body.posts-edit {
+  //background-color: #C7EDCC;
+  background-image: image-url("editor-bg.jpg");
 }
+
 // .ui.container.post-form {
 //   background-color: #FFFFFF;
 //   // border: 1px solid #eeeeee;
@@ -18,6 +19,7 @@ body.posts-new,body.posts-edit {
   padding: 0.618em;
   background-color: white;
 }
+
 .post-title-field {
   line-height: 30px !important;
   font-size: 30px !important;
@@ -30,6 +32,7 @@ body.posts-new,body.posts-edit {
     box-shadow: none !important;
   }
 }
+
 .post-image-field {
   line-height: 16px !important;
   font-size: 16px !important;
@@ -44,15 +47,18 @@ body.posts-new,body.posts-edit {
     box-shadow: none !important;
   }
 }
+
 .posts-timeline {
   border-left: 3px solid #fbbd08;
 }
+
 .post-timeline {
   padding-left: 42px;
   padding-top: 15px;
   padding-bottom: 20px;
   border-bottom: 1px dashed #dedede;
 }
+
 .post-timeline-dot {
   display: inline-block;
   /* position: absolute; */
@@ -66,12 +72,14 @@ body.posts-new,body.posts-edit {
   // border: 1px solid #FFFFFF;
   border-radius: 1000px;
 }
+
 .simditor {
   border: none !important;
   &:focus {
     border: none !important;
   }
 }
+
 .simditor .simditor-body {
   min-height: 892px;
   font-size: 18px !important;
@@ -79,25 +87,31 @@ body.posts-new,body.posts-edit {
   line-height: 30px !important;
   padding: 22px 30px 40px !important;
 }
+
 .simditor .simditor-toolbar {
   border-bottom: none !important;
   background: #eeeeee !important;
 }
+
 .cover {
   text-align: center;
 }
+
 .cover img {
   max-width: 100%;
   display: inline-block;
   border-radius: 0.3em;
 }
+
 .ui.header.inline-block {
   display: inline-block;
   margin-left: 3em;
 }
+
 a.greylink, a.greylink:active, a.greylink:hover, a.greylink:focus {
   color: #6B6868 !important;
 }
+
 .center-aligned-no-lr-margin {
   margin-left: 0 !important;
   margin-right: 0 !important;

@@ -4,10 +4,10 @@ class Microblog < ActiveRecord::Base
 
   private
 
-    #验证上传的图片大小
-    def photo_size
-      if photo.size > 5.megabytes
-        errors.add(:photo, "图片的尺寸应该小于5MB")
-      end
+  #验证上传的图片大小
+  def photo_size
+    if photo.size > 5.megabytes
+      errors.add(:photo, "图片的尺寸应该小于5MB")
     end
+  end
 end

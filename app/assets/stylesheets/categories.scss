@@ -2,7 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
 // body.categories-show {
 //   background-color: #C7EDCC;
 //   background-image: image-url("editor-bg.jpg");
@@ -10,20 +9,22 @@
 // div.top-header{
 //   padding: 1.7em 1em 1em 1em;
 // }
-div.full-width-header{
+div.full-width-header {
   width: 100%;
   // background-color: #FBFBFB;
   padding-top: 1.7em;
   padding-bottom: 1em;
   // border-bottom: 1px solid #DEDEDE;
 }
-div.full-width-footer{
+
+div.full-width-footer {
   width: 100%;
   // background-color: #FBFBFB;
   padding-top: 1em;
   padding-bottom: 0.5em;
   border-top: 1px dashed #DEDEDE;
 }
+
 // div.category-header{
 //   background-color: white;
 //   padding: 1.7em 2em 1.5em;
@@ -31,28 +32,33 @@ div.full-width-footer{
 // a, a:active, a:hover, a:focus {
 //   color: #767676 !important;
 // }
-.site-header{
+.site-header {
   color: black !important;
 }
-.inline-block-site-header{
+
+.inline-block-site-header {
   // color: white;
   color: black !important;
   display: inline-block;
   // background: black;
 }
-.inline-block-site-sub-header{
+
+.inline-block-site-sub-header {
   color: white;
   display: inline-block;
   background: #eded00;
 }
+
 .site-sub-header {
-    color: #fbbd08;
-    font-size: 1.2rem;
-    font-weight: 700;
+  color: #fbbd08;
+  font-size: 1.2rem;
+  font-weight: 700;
 }
+
 .black-header {
   color: black !important;
 }
+
 a.category-header-link {
   color: black !important;
   &:active, &:hover, &:focus {
@@ -60,16 +66,19 @@ a.category-header-link {
     color: #dd2333 !important;
   }
 }
+
 .category-header-link-click {
   color: white !important;
   background-color: #767676;
   border-radius: 0.3em;
 }
-.post-special-image{
+
+.post-special-image {
   height: auto;
   max-width: 100%;
   vertical-align: middle;
 }
+
 a.post-title-link {
   font-size: 3.0rem;
   color: black !important;
@@ -78,17 +87,20 @@ a.post-title-link {
     color: #dd2333 !important;
   }
 }
+
 .editor-style p {
   color: black !important;
 }
+
 .category-input {
-    border: 2px dashed #E0E1E2 !important;
-    border-radius: 0 !important;
-    &:focus {
+  border: 2px dashed #E0E1E2 !important;
+  border-radius: 0 !important;
+  &:focus {
     border: 2px dashed #00BCD4 !important;
     border-radius: 0 !important;
+  }
 }
-}
+
 .category-block-border {
   // display: none;
   text-align: center;
@@ -100,6 +112,7 @@ a.post-title-link {
   border: 3px dashed #dd2333;
   border-radius: 0.5em;
 }
+
 .category-block {
   background-color: white;
   // padding: 1.7em 2em 1.5em;
@@ -115,9 +128,11 @@ a.post-title-link {
   }
 
 }
-.sb-main-content{
+
+.sb-main-content {
   margin-top: 2.6em;
 }
+
 div.post-text {
   line-height: 1.9em;
   font-weight: 400;
@@ -127,7 +142,8 @@ div.post-text {
   // padding-left: 10px;
   padding-bottom: 0.61em;
 }
-div.copy-text{
+
+div.copy-text {
   text-align: center;
   line-height: 1.9em;
   font-weight: 700;
@@ -135,33 +151,28 @@ div.copy-text{
   // font-size: 1.4em;
   color: black;
 }
+
 .pagination {
-    text-align: center;
+  text-align: center;
 }
-//<!-- 固定宽高布局 Begin -->
-// img.post-image {
-//   max-width: 100%;
-//   // display: inline-block;
-//   border-radius: 0.3em;
-//   width: 260.75px;
-//   height: 260.156px;
-// }
-//<!-- 固定宽高布局 End -->
 
 // <!-- 瀑布流布局 Begin-->
 .container-fluid {
   // padding: 20px;
   margin: 0 auto;
   text-align: center;
-  }
+}
+
 .box {
   margin-bottom: 20px;
   // float: left;
   width: 266px;
-  }
-  .box img {
+}
+
+.box img {
   max-width: 100%;
   border-radius: 0.3em;
   border: 1px solid #EEE;
 }
+
 // <!-- 瀑布流布局 End-->

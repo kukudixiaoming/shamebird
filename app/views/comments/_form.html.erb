@@ -1,22 +1,22 @@
 <%= form_for([@category, @post, @post.comments.build], html: {class: "ui form"}) do |f| %>
 
-<!-- <h3 class="ui grey dividing header">添加新评论</h3> -->
-<h3 class="ui grey header">添加新评论</h3>
-<br/>
-<div class="field">
-  <%= f.text_field :comment_author, class: "category-input", placeholder: "称呼", autocomplete: "off" %>
-</div>
-<div class="field">
-  <%= f.text_field :comment_email, class: "category-input", placeholder: "邮箱", autocomplete: "off" %>
-</div>
-<div class="field">
-  <%= f.text_field :comment_site, class: "category-input", placeholder: "网站", autocomplete: "off" %>
-</div>
-<div class="field">
-  <%= f.text_area :comment_text, class: "category-input", placeholder: "评论在这里写", autocomplete: "off" %>
-</div>
+    <!-- <h3 class="ui grey dividing header">添加新评论</h3> -->
+    <h3 class="ui header">添加新评论</h3>
+    <br/>
+    <div class="field">
+      <%= f.text_field :comment_author, class: "category-input", placeholder: "称呼", autocomplete: "off" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :comment_email, class: "category-input", placeholder: "邮箱", autocomplete: "off" %>
+    </div>
+    <div class="field">
+      <%= f.text_field :comment_site, class: "category-input", placeholder: "网站或weibo（选填）", autocomplete: "off" %>
+    </div>
+    <div class="field">
+      <%= f.text_area :comment_text, class: "category-input", placeholder: "做一个思考者吧！", autocomplete: "off" %>
+    </div>
 
+    使用<a href="https://gravatar.com/">Gravatar</a>设置全球通用头像<br/><br/>
 
-
-<%= f.submit "完成", class: "ui submit button" %>
+    <%= f.submit "完成", class: "ui submit button" %>
 <% end %>

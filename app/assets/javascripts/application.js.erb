@@ -23,7 +23,7 @@
 
 
 //********** 初始化 simditor 编辑器 **********
-$(document).ready(function() {
+$(document).ready(function () {
   var editor = new Simditor({
     textarea: $('#editor'),
     //optional options
@@ -31,26 +31,26 @@ $(document).ready(function() {
     toolbar: [
       'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', 'fontScale',
       'checklist', '|', 'ol', 'ul', 'blockquote', 'hr', 'indent', 'outdent',
-      'alignment', '|', 'code', 'table', 'link', 'image','emoji', 'markdown',
+      'alignment', '|', 'code', 'table', 'link', 'image', 'emoji', 'markdown',
       'fullscreen'
     ],
     upload: {
 
-   url: '/upload',
+      url: '/upload',
 
-   params: {
+      params: {
 
-     "authenticity_token": "#{form_authenticity_token.to_s}"
+        "authenticity_token": "#{form_authenticity_token.to_s}"
 
-   },
+      },
 
-   fileKey: 'upload_file',
+      fileKey: 'upload_file',
 
-   connectionCount: 3,
+      connectionCount: 3,
 
-   leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
+      leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
 
- },
+    },
 
 
     placeholder: '',
@@ -65,97 +65,72 @@ $(document).ready(function() {
   });
 
 });
-// ********** 编辑器 simditor-body 的高度等于窗口高度 **********
-// function AdaptHeight(){
-//   height = $(window).height();  //获取浏览器可视窗口的高度
-//   $(".simditor .simditor-body").css("min-height",height); //赋值给页面的高度属性
-// }
-// window.onresize = AdaptHeight();  //！！！没用 ********** onresize 事件会在窗口或框架被调整大小时发生
-// $(document).ready(function(){
-//   AdaptHeight();  //！！！没用
-// });
 
 //********** 使 .post-text 中的图片居中，给图片加一个父元素div **********
-// $(document).ready(function(){
-//     $(".post-text img").wrap("<div class='cover-image'></div>");
-// });
-
-$(document).on('page:change',function(){
-    $(".post-text img").wrap("<div class='cover'></div>");
-    $(".cover").addClass("cover");
-    $(".cover img").addClass("imgshow");
+$(document).on('page:change', function () {
+  $(".post-text img").wrap("<div class='cover'></div>");
+  $(".cover").addClass("cover");
+  $(".cover img").addClass("imgshow");
 });
 
 //********** 瀑布流+无限加载布局 **********
-$(document).on('page:change',function(){
-
-
-
-
-    var $container = $('#masonry');
-    $container.imagesLoaded(function() {
-        $container.masonry({
-                itemSelector: '.box',
-                gutter: 20,
-                isAnimated: true,
-                isFitWidth: true,
-                isResizableL: true
-            });
-     });
-
-
-     $container.infinitescroll({
-             navSelector: ".pagination",      //页面分页元素--本页的导航，意思就是一个可以触发ajax函数的模块
-             nextSelector: ".pagination a[rel=next]",  //下一页的导航
-             itemSelector: ".box" ,             //此处我用了类选择器，选择的是你要加载的那一个块（每次载入的数据放的地方）
-            //  animate: true,                          //加载时候时候需要动画，默认是false
-            //  maxPage: 3,                            //最大的页数，也就是滚动多少次停。这个页码必须得要你从数据库里面拿
-            //  debug : true,
-             pixelsFromNavToBottom: 300,
-             loading: {
-    finishedMsg: '没有更多啦。',
-    loadingText:'加载中',
-    // img: 'images/loading.gif'
-}
-         },
-         function( newElements ) {
-    //首先隐藏
-    var $newElems = $( newElements ).css({ opacity: 0 });
-    $newElems.imagesLoaded(function(){
-      //布局时显示
-      $newElems.animate({ opacity: 1 });
-      $container.masonry( 'appended', $newElems, true );
+$(document).on('page:change', function () {
+  var $container = $('#masonry');
+  $container.imagesLoaded(function () {
+    $container.masonry({
+      itemSelector: '.box',
+      gutter: 20,
+      isAnimated: true,
+      isFitWidth: true,
+      isResizableL: true
     });
   });
+
+  $container.infinitescroll({
+        navSelector: ".pagination",      //页面分页元素--本页的导航，意思就是一个可以触发ajax函数的模块
+        nextSelector: ".pagination a[rel=next]",  //下一页的导航
+        itemSelector: ".box",             //此处我用了类选择器，选择的是你要加载的那一个块（每次载入的数据放的地方）
+        //  animate: true,                          //加载时候时候需要动画，默认是false
+        //  maxPage: 3,                            //最大的页数，也就是滚动多少次停。这个页码必须得要你从数据库里面拿
+        //  debug : true,
+        pixelsFromNavToBottom: 300,
+        loading: {
+          finishedMsg: '没有更多啦。',
+          loadingText: '加载中',
+          // img: 'images/loading.gif'
+        }
+      },
+      function (newElements) {
+        //首先隐藏
+        var $newElems = $(newElements).css({opacity: 0});
+        $newElems.imagesLoaded(function () {
+          //布局时显示
+          $newElems.animate({opacity: 1});
+          $container.masonry('appended', $newElems, true);
+        });
+      });
 
 
 });
 
-//********** me#paper 点击显示 category_id **********
-// $(document).on('page:change',function(){
-// $(".me-category").click(function(){
-//   alert($(this).attr("id"));
-// });
-// });
-
 //********** semantic-ui js **********
-$(document).on('page:change',function(){
-$('.ui.accordion')
-  .accordion()
-;
+$(document).on('page:change', function () {
+  $('.ui.accordion')
+      .accordion()
+  ;
 
-$('.ui.dropdown')
-  .dropdown()
-;
+  $('.ui.dropdown')
+      .dropdown()
+  ;
 
 // 执行的顺序很重要，一个位置跳动的bug终于解决了，汗。。。
 // 看来改bug也是需要转瞬即逝的灵感，不过我太机智了哈哈
-$('.imgshow').click(function() {
+  $('.imgshow').click(function () {
 
-var $modalImageSrc = $(this).attr('src');
-$('.microblog_image').attr('src', $modalImageSrc);
+    var $modalImageSrc = $(this).attr('src');
+    $('.microblog_image').attr('src', $modalImageSrc);
 
-var $microblogText = $(this).parent().prev().text();
+    var $microblogText = $(this).parent().prev().text();
 
 // 不起作用？
 // if($microblogText == null){
@@ -165,45 +140,34 @@ var $microblogText = $(this).parent().prev().text();
 //   $('.modal_description').text($microblogText);
 // }
 
-$('.modal_description').text($microblogText);
+    $('.modal_description').text($microblogText);
 
-var $albumLink = $(this).parent().prev().prev().children()
-var $albumEditLink = $albumLink.first().attr('href');
-var $albumDelLink = $albumLink.last().attr('href');
-$('.album_edit_link').attr('href', $albumEditLink);
-$('.album_del_link').attr('href', $albumDelLink);
+    var $albumLink = $(this).parent().prev().prev().children()
+    var $albumEditLink = $albumLink.first().attr('href');
+    var $albumDelLink = $albumLink.last().attr('href');
+    $('.album_edit_link').attr('href', $albumEditLink);
+    $('.album_del_link').attr('href', $albumDelLink);
 
-});
+  });
 
-$('.ui.basic.modal')
-.modal({
-  inverted: true
-})
-.modal('attach events', '.imgshow', 'show')
-;
-
-
+  $('.ui.basic.modal')
+      .modal({
+        inverted: true
+      })
+      .modal('attach events', '.imgshow', 'show')
+  ;
 
 
 });
 
-//********** iframe 的高度等于窗口高度 ！！！此处会影响网易云音乐的iframe ********** **********
-// function AdaptHeight(){
-//   height = $(window).height();  //获取浏览器可视窗口的高度
-//   $('iframe').attr("height",height); //赋值给页面的高度属性
-// }
-// window.onresize = AdaptHeight();  //！！！没用 ********** onresize 事件会在窗口或框架被调整大小时发生
-// $(document).on('page:change',function(){
-//   AdaptHeight();
-// });
 //********** 删除 post-text 中的 moremore **********
-$(document).on('page:change',function(){
+$(document).on('page:change', function () {
 // var str = document.getElementById("post-text").innerHTML;
-var $str = $(".post-text").html().replace("moremore","");
-$(".post-text.post-page").html($str);
+  var $str = $(".post-text").html().replace("moremore", "");
+  $(".post-text.post-page").html($str);
 });
 //********** 高亮 **********
-$(document).on('page:change',function(){
-hljs.initHighlightingOnLoad();
+$(document).on('page:change', function () {
+  hljs.initHighlightingOnLoad();
 });
 console.log(' powered by .shamebird (=￣ω￣=)');

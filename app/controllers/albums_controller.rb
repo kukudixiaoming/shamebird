@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
 
-  http_basic_authenticate_with name:"lulu", password:"secret", except: [:index, :show]
+  http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
 
   def new
     @album = Album.new
@@ -8,7 +8,7 @@ class AlbumsController < ApplicationController
 
   def create
     @album = Album.new(album_params)
-    if @album.save
+    if @album.save then
       redirect_to albums_path
     else
       render 'new'
@@ -39,7 +39,7 @@ class AlbumsController < ApplicationController
     redirect_to albums_path
   end
 
-private
+  private
   def album_params
     params.require(:album).permit(:description, :picture)
   end

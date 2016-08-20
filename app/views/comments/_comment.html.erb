@@ -1,6 +1,6 @@
 <div class="comment" id="<%= comment.id %>">
   <a class="avatar">
-    <img src="https://tse3-mm.cn.bing.net/th?id=OIP.M0cdbfd084192a2a859fe89dce56e1348H0&w=148&h=150&c=7&rs=1&qlt=90&o=4&pid=1.1">
+    <%= gravatar_for(comment) %>
   </a>
   <div class="content">
     <%= link_to comment.comment_author, "http://#{comment.comment_site}", class: "author" %>
@@ -8,17 +8,17 @@
     <div class="metadata">
       <span class="date">
         <!-- <%= # comment.created_at.localtime.strftime("%Y年%m月%d日")
-            # 上面一行会报错
-            # NoMethodError in Posts#show
-            # undefined method `localtime' for nil:NilClass
-            %> -->
+                 # 上面一行会报错
+                 # NoMethodError in Posts#show
+                 # undefined method `localtime' for nil:NilClass
+      %> -->
 
         <%= comment.created_at.localtime %>
-        <!-- <%= link_to '删除', [@category, comment.post, comment],# 为什么要这样写
-         method: :delete, data: {confirm:'确定要删除吗？'} %> -->
+        <!-- <%= link_to '删除', [@category, comment.post, comment], # 为什么要这样写
+                         method: :delete, data: {confirm: '确定要删除吗？'} %> -->
 
-         <%= link_to '删除', category_post_comment_path(@category, @post, comment),
-          method: :delete, data: {confirm:'确定要删除吗？'} %>
+        <%= link_to '删除', category_post_comment_path(@category, @post, comment),
+                    method: :delete, data: {confirm: '确定要删除吗？'} %>
       </span>
     </div>
     <div class="text">

@@ -2,9 +2,9 @@ module CategoriesHelper
   def copy_year(start_year = '2016')
     now_year = Time.new.strftime("%Y")
     if now_year == start_year
-       "©#{now_year}"
+      "©#{now_year}"
     else
-       "©#{start_year} - #{now_year}"
+      "©#{start_year} - #{now_year}"
     end
   end
 
