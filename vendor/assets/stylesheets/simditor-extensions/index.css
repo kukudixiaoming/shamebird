@@ -1,6 +1,3 @@
 /*
- *= require simditor-checklist
- *= require simditor-emoji
- *= require simditor-fullscreen
- *= require simditor-markdown
+ *= require_tree .
  */
