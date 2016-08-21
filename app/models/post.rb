@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   mount_uploader :post_image, PostUploader
   validates :post_title, presence: true, length: {maximum: 70}
 
-  validates :post_text, presence: true
+  validates :post_text, presence: true, length: {minimum: 15}
 
   # validates :post_image, presence: true, length: { maximum: 255}
 
