@@ -1,5 +1,6 @@
 # README
 ### 欢迎使用 ShameBird，ShameBird 是一个简单的博客程序,使用Rails构建
+![Shame Bird Look](http://7xi85m.com1.z0.glb.clouddn.com/ShameBirdLook.jpg)
 This README would normally document whatever steps are necessary to get the application up and running.  
 Things you may want to cover:  
 -	Ruby version
