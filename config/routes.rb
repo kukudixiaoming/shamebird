@@ -1,16 +1,13 @@
 Rails.application.routes.draw do
 
   post 'upload' => 'upload#image'
-
-  resources :microblogs
-  resources :albums
-
   get 'signup' => 'users#new'
-
   # root 'welcome#index'
   root 'categories#show'
 
   resources :categories do
+    resources :microblogs
+    resources :albums
     resources :posts do
       resources :comments
     end

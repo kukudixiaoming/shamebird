@@ -3,13 +3,15 @@ class MicroblogsController < ApplicationController
   http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
 
   def new
-    @microblog = Microblog.new
+    @category = Category.find(params[:category_id])
+    @microblog = @category.microblogs.new
   end
 
   def create
-    @microblog = Microblog.new(microblog_params)
+    @category = Category.find(params[:category_id])
+    @microblog = @category.microblogs.new(microblog_params)
     if @microblog.save
-      redirect_to microblogs_path
+      redirect_to category_microblogs_path
     else
       render 'new'
     end
@@ -20,27 +22,31 @@ class MicroblogsController < ApplicationController
   end
 
   def index
+    @category = Category.find(params[:category_id])
     @microblogs = Microblog.all
     @categories = Category.all
   end
 
   def edit
+    @category = Category.find(params[:category_id])
     @microblog = Microblog.find(params[:id])
   end
 
   def update
-    @microblog = Microblog.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @microblog = @category.microblogs.find(params[:id])
     if @microblog.update(microblog_params)
-      redirect_to microblogs_path
+      redirect_to category_microblogs_path
     else
       render 'edit'
     end
   end
 
   def destroy
-    @microblog = Microblog.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @microblog = @category.microblogs.find(params[:id])
     @microblog.destroy
-    redirect_to microblogs_path
+    redirect_to category_microblogs_path
   end
 
   private
