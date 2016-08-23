@@ -2,6 +2,19 @@ class CategoriesController < ApplicationController
 
   http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
 
+  def redirect_to_category_which_url(category)
+    case @category.category_type
+    when "post"
+    redirect_to category_posts_url(category)
+    when "microblog"
+    redirect_to category_microblogs_url(category)
+    when "album"
+    redirect_to category_albums_url(category)
+  else
+    ##跳出处理
+  end
+  end
+
   def new
     @category = Category.new
   end
@@ -9,7 +22,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to @category
+      redirect_to_category_which_url(@category)
     else
       render 'new'
     end
@@ -32,7 +45,7 @@ class CategoriesController < ApplicationController
   def update
     @category = Category.find(params[:id])
     if @category.update(category_params)
-      redirect_to @category
+      redirect_to_category_which_url(@category)
     else
       render 'edit'
     end
@@ -41,11 +54,11 @@ class CategoriesController < ApplicationController
   def destroy
     @category = Category.find(params[:id])
     @category.destroy
-    redirect_to categories_path
+    redirect_to categories_url
   end
 
   private
   def category_params
-    params.require(:category).permit(:category_name, :category_brief, :category_image)
+    params.require(:category).permit(:category_name, :category_brief, :category_image, :category_type)
   end
 end

@@ -1,0 +1,32 @@
+<div class="ui accordion">
+  <div class="title">
+    <i class="dropdown icon"></i>
+    <%= "#{@category.category_name} 分类下的文章" %>
+  </div>
+  <div class="content">
+
+    <% @category.posts.reverse.each do |post| %>
+        <div class="transition hidden">
+          <div class="title">
+            <i class="dropdown icon"></i>
+            <%= post.post_title %>
+          </div>
+          <div class="content">
+            <p class="transition hidden">  <%= post.created_at.localtime.strftime("%Y年%m月%d日") %>
+              <%= link_to "编辑", edit_category_post_path(@category, post), data: {no_turbolink: true} %>
+              <%= link_to '删除', category_post_path(@category, post), method: :delete, data: {confirm: '确定要删除吗？'} %>
+            </p>
+          </div>
+
+        </div>
+    <% end %>
+  </div>
+  <div class="title">
+    <i class="dropdown icon"></i>
+    2333
+  </div>
+  <div class="content">
+    <p class="transition hidden">ooo</p>
+    <p class="transition hidden">bbb</p>
+  </div>
+</div>

@@ -3,13 +3,15 @@ class AlbumsController < ApplicationController
   http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
 
   def new
-    @album = Album.new
+    @category = Category.find(params[:category_id])
+    @album = @category.albums.new
   end
 
   def create
-    @album = Album.new(album_params)
+    @category = Category.find(params[:category_id])
+    @album = @category.albums.new(album_params)
     if @album.save then
-      redirect_to albums_path
+      redirect_to category_albums_url
     else
       render 'new'
     end
@@ -17,26 +19,30 @@ class AlbumsController < ApplicationController
 
   def index
     @categories = Category.all
+    @category = Category.find(params[:category_id])
     @albums = Album.paginate(page: params[:page], per_page: 12)
   end
 
   def edit
-    @album = Album.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @album = @category.albums.find(params[:id])
   end
 
   def update
-    @album = Album.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @album = @category.albums.find(params[:id])
     if @album.update(album_params)
-      redirect_to albums_path
+      redirect_to category_albums_url
     else
       render 'edit'
     end
   end
 
   def destroy
-    @album = Album.find(params[:id])
+    @category = Category.find(params[:category_id])
+    @album = @category.albums.find(params[:id])
     @album.destroy
-    redirect_to albums_path
+    redirect_to category_albums_url
   end
 
   private

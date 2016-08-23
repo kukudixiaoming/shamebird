@@ -1,6 +1,10 @@
 class Microblog < ActiveRecord::Base
   mount_uploader :photo, PictureUploader
   validate :photo_size
+  # validates :text, presence: true
+  # validates :music, presence: true
+  # validates :photo, presence: true
+  belongs_to :category
 
   private
 

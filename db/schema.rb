@@ -11,14 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160720094202) do
+
+ActiveRecord::Schema.define(version: 20160823144752) do
 
   create_table "albums", force: :cascade do |t|
     t.text     "description"
     t.string   "picture"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
+
+  add_index "albums", ["category_id"], name: "index_albums_on_category_id"
 
   create_table "categories", force: :cascade do |t|
     t.string   "category_name"
@@ -26,6 +30,7 @@ ActiveRecord::Schema.define(version: 20160720094202) do
     t.string   "category_image"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
+    t.string   "category_type"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -44,9 +49,12 @@ ActiveRecord::Schema.define(version: 20160720094202) do
     t.text     "text"
     t.string   "photo"
     t.string   "music"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "category_id"
   end
+
+  add_index "microblogs", ["category_id"], name: "index_microblogs_on_category_id"
 
   create_table "posts", force: :cascade do |t|
     t.string   "post_title"

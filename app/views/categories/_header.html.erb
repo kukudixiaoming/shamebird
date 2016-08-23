@@ -10,32 +10,18 @@
       <br/>
       <h3 class="site-header">
         <% @categories.each do |category| %>
-            <%= link_to category.category_name, category_path(category),
-                        title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-        <% end %>
-        <%= link_to microblogs_path, class: "category-header-link" do %>
-            纸条
-        <% end %>
+        <%= link_to category.category_name, category_which_path(category, category.category_type),
+                    title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <%= link_to albums_path, class: "category-header-link" do %>
-            影集
         <% end %>
       </h3>
     </div>
     <div class="sixteen wide mobile sixteen wide tablet only column">
       <h3 class="site-header">
         <% @categories.each do |category| %>
-            <%= link_to category.category_name, category_path(category),
-                        title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
-            &nbsp;&nbsp;|&nbsp;&nbsp;
-        <% end %>
-        <%= link_to microblogs_path, class: "category-header-link" do %>
-            纸条
-        <% end %>
+        <%= link_to category.category_name, category_which_path(category, category.category_type),
+                    title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
         &nbsp;&nbsp;|&nbsp;&nbsp;
-        <%= link_to albums_path, class: "category-header-link" do %>
-            影集
         <% end %>
       </h3>
     </div>

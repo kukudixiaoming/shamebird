@@ -1,55 +1,81 @@
 <%= form_for(@category, html: {class: "ui form", multipart: true}) do |f| %>
 
-    <% if @category.errors.any? %>
-        <!-- <script>
+<% if @category.errors.any? %>
+<!-- <script>
           $(".ui.form").addClass("error");
           $(".field_with_errors").parent().addClass("error");
         </script> -->
-        <div id="error_explanation">
-          <div class="ui error message">
-            <div class="header">
-              The form contains
-              <%= pluralize(@category.errors.count, "error") %>.
-            </div>
-
-            <ul class="list">
-              <% @category.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-              <% end %>
-            </ul>
-          </div>
-        </div>
-    <% end %>
-    <br/>
-    <div class="field">
-      <!-- <%= f.label :category_name, "类名" %> -->
-      <%= f.text_field :category_name, class: "category-input", placeholder: "类名", autocomplete: "off" %>
+<div id="error_explanation">
+  <div class="ui error message">
+    <div class="header">
+      The form contains
+      <%= pluralize(@category.errors.count, "error") %>.
     </div>
 
-    <div class="field">
-      <%= f.text_field :category_brief, class: "category-input", placeholder: "简要", autocomplete: "off" %>
+    <ul class="list">
+      <% @category.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<% end %>
+<br/>
+<div class="field">
+  <!-- <%= f.label :category_name, "类名" %> -->
+  <%= f.text_field :category_name, class: "category-input", placeholder: "类名", autocomplete: "off" %>
+</div>
+
+<div class="field">
+  <%= f.text_field :category_brief, class: "category-input", placeholder: "简要", autocomplete: "off" %>
+</div>
+
+<% if params[:action] == "new" || params[:action] == "create" %>
+<div class="inline fields">
+  <label for="category_type">选择分类类型:</label>
+  <div class="field">
+    <div class="ui radio checkbox">
+      <%= f.radio_button(:category_type, "post", checked: "checked") %>
+      <%= f.label(:category_type, "日志") %>
     </div>
-
-    <div class="field">
-      <%= f.file_field :category_image, accept: 'image/jpeg,image/gif,image/png' %>
-      <!-- <%= f.text_field :category_image, class: "category-input", placeholder: "分类图（请填写图片url）", autocomplete: "off" %> -->
+  </div>
+  <div class="field">
+    <div class="ui radio checkbox">
+      <%= f.radio_button(:category_type, "microblog") %>
+      <%= f.label(:category_type, "纸条") %>
     </div>
+  </div>
+  <div class="field">
+    <div class="ui radio checkbox">
+      <%= f.radio_button(:category_type, "album") %>
+      <%= f.label(:category_type, "影集") %>
+    </div>
+  </div>
+</div>
+<% else %>
+<div class="ui message">
+  <p>分类类型为： <%= @category.category_type %></p>
+</div>
+<% end %>
+<div class="field">
+  <%= f.file_field :category_image, accept: 'image/jpeg,image/gif,image/png' %>
+  <!-- <%= f.text_field :category_image, class: "category-input", placeholder: "分类图（请填写图片url）", autocomplete: "off" %> -->
+</div>
+<% if @category.category_image? %>
+<%= image_tag(@category.category_image.url, class: "ui image fixheight imgshow tempimgshow") %>
+<% else %>
+<%= image_tag("http://www.semantic-ui.cn/images/wireframe/image.png", class: "ui image fixheight imgshow tempimgshow") %>
+<% end %>
+<br/>
 
-    <% if @category.category_image? %>
-        <%= image_tag(@category.category_image.url, class: "ui image fixheight imgshow tempimgshow") %>
-    <% else %>
-        <%= image_tag("http://www.semantic-ui.cn/images/wireframe/image.png", class: "ui image fixheight imgshow tempimgshow") %>
-    <% end %>
-    <br/>
+<% if @category.errors.any? %>
+<script>
+  $(".ui.form").addClass("error");
+  $(".field_with_errors").parent().addClass("error");
+</script>
+<% end %>
 
-    <% if @category.errors.any? %>
-        <script>
-          $(".ui.form").addClass("error");
-          $(".field_with_errors").parent().addClass("error");
-        </script>
-    <% end %>
-
-    <%= f.submit "完成", class: "ui submit button" %>
+<%= f.submit "完成", class: "ui submit button" %>
 <% end %>
 
 <script type="text/javascript">
@@ -60,15 +86,9 @@
     }
 
 
-    //   var $reader = new FileReader();
-    //   $reader.readAsDataURL(this.files[0]);
-    //   $reader.onloadend = function(){
-    //    $('.tempimgshow').attr('src', oFREvent.target.result);
+    //   var $reader = new FileReader();   $reader.readAsDataURL(this.files[0]);   $reader.onloadend = function(){    $('.tempimgshow').attr('src', oFREvent.target.result);
     //
-    //    alert(oFREvent.target.result);
-    //  }
-
-    //实时预览上传图片，上面被注释的代码也能实现这个功能
+    //    alert(oFREvent.target.result);  } 实时预览上传图片，上面被注释的代码也能实现这个功能
     var $reader = new FileReader();
     $reader.readAsDataURL(this.files[0]);
     $reader.onloadend = function () {

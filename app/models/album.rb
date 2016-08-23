@@ -1,4 +1,5 @@
 class Album < ActiveRecord::Base
+  belongs_to :category
   mount_uploader :picture, AlbumUploader
   validate :picture_size
 
