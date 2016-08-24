@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     @category = Category.find(params[:category_id])
     @post = @category.posts.new(post_params)
     if @post.save
-      redirect_to category_path(@category) #bug
+      redirect_to category_post_path(@category, @post)
     else
       render 'new'
     end
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
     # @post = Post.find(params[:id]) 这样写也不会出错
     @post = @category.posts.find(params[:id])
     if @post.update(post_params)
-      redirect_to category_path(@category)
+      redirect_to category_post_path(@category, @post)
       # redirect_to category_post_path(@category, @post)
     else
       render 'edit'

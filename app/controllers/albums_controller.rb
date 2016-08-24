@@ -11,7 +11,7 @@ class AlbumsController < ApplicationController
     @category = Category.find(params[:category_id])
     @album = @category.albums.new(album_params)
     if @album.save then
-      redirect_to category_albums_url
+      redirect_to category_url(@category)
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class AlbumsController < ApplicationController
     @category = Category.find(params[:category_id])
     @album = @category.albums.find(params[:id])
     if @album.update(album_params)
-      redirect_to category_albums_url
+      redirect_to category_url(@category)
     else
       render 'edit'
     end
@@ -42,7 +42,7 @@ class AlbumsController < ApplicationController
     @category = Category.find(params[:category_id])
     @album = @category.albums.find(params[:id])
     @album.destroy
-    redirect_to category_albums_url
+    redirect_to category_url(@category)
   end
 
   private

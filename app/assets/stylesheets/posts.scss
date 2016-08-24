@@ -3,7 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 body.posts-new, body.posts-edit, body.posts-create, body.posts-update {
   //background-color: #C7EDCC;
-  background-image: image-url("editor-bg.jpg");
+  background-color: #f8f8f9;
+  // background-image: image-url("editor-bg.jpg");
 }
 
 // .ui.container.post-form {
@@ -15,12 +16,18 @@ body.posts-new, body.posts-edit, body.posts-create, body.posts-update {
 //   border-radius: 4px !important;
 //   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
 // }
+.ui.form.post-radius-form {
+    border-radius: 0.28571429rem;
+    background-color: white;
+}
 .post-title-div {
   padding: 0.618em;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
+  margin-bottom: 0 !important;
 }
 
 .post-title-field {
+  // background-color: beige !important;
   line-height: 30px !important;
   font-size: 30px !important;
   border: 0 !important;
@@ -86,6 +93,7 @@ body.posts-new, body.posts-edit, body.posts-create, body.posts-update {
   font-weight: 100 !important;
   line-height: 30px !important;
   padding: 22px 30px 40px !important;
+  // background-color: beige;
 }
 
 .simditor .simditor-toolbar {

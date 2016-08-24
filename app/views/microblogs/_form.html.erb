@@ -41,7 +41,7 @@
     <% if @microblog.photo? %>
         <%= image_tag(@microblog.photo.url, class: "ui image fixheight imgshow tempimgshow") %>
     <% else %>
-        <%= image_tag("http://www.semantic-ui.cn/images/wireframe/image.png", class: "ui image fixheight imgshow tempimgshow") %>
+        <%= image_tag("sample_image.png", class: "ui image fixheight imgshow tempimgshow") %>
     <% end %>
     <br/>
 
@@ -52,7 +52,7 @@
         </script>
     <% end %>
 
-    <%= f.submit "完成", class: "ui submit button" %>
+    <%= f.submit "完成", class: "ui submit fluid button" %>
 <% end %>
 
 

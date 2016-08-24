@@ -10,7 +10,7 @@
       <br/>
       <h3 class="site-header">
         <% @categories.each do |category| %>
-        <%= link_to category.category_name, category_which_path(category, category.category_type),
+        <%= link_to category.category_name, category_path(category),
                     title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <% end %>
@@ -19,7 +19,7 @@
     <div class="sixteen wide mobile sixteen wide tablet only column">
       <h3 class="site-header">
         <% @categories.each do |category| %>
-        <%= link_to category.category_name, category_which_path(category, category.category_type),
+        <%= link_to category.category_name, category_path(category),
                     title: category.category_brief, id: "category-#{category.id}", class: "category-header-link" %>
         &nbsp;&nbsp;|&nbsp;&nbsp;
         <% end %>

@@ -11,7 +11,7 @@ class MicroblogsController < ApplicationController
     @category = Category.find(params[:category_id])
     @microblog = @category.microblogs.new(microblog_params)
     if @microblog.save
-      redirect_to category_microblogs_path
+      redirect_to category_url(@category)
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class MicroblogsController < ApplicationController
     @category = Category.find(params[:category_id])
     @microblog = @category.microblogs.find(params[:id])
     if @microblog.update(microblog_params)
-      redirect_to category_microblogs_path
+      redirect_to category_url(@category)
     else
       render 'edit'
     end
@@ -46,7 +46,7 @@ class MicroblogsController < ApplicationController
     @category = Category.find(params[:category_id])
     @microblog = @category.microblogs.find(params[:id])
     @microblog.destroy
-    redirect_to category_microblogs_path
+    redirect_to category_url(@category)
   end
 
   private
