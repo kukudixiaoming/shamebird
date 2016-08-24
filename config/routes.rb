@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-
-  post 'upload' => 'upload#image'
-  get 'signup' => 'users#new'
   # root 'welcome#index'
   root 'categories#show'
 
-  resources :categories do
-    resources :microblogs
-    resources :albums
-    resources :posts do
-      resources :comments
+    resources :categories do
+      resources :microblogs
+      resources :albums
+      resources :posts do
+        resources :comments
+      end
     end
-  end
-
+    
+  post 'upload' => 'upload#image'
+  get 'signup' => 'users#new'
   get 'me' => 'me#paper'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
