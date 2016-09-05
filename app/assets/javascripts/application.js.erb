@@ -169,6 +169,12 @@ $(document).on('page:change', function () {
   var $str = $(".post-text").html().replace("moremore", "");
   $(".post-text.post-page").html($str);
 });
+//********** 验证码刷新 **********
+$(document).on('page:change', function () {
+$(".captcha_link").click(function () {
+  $(".captcha_link img").attr("src",'/rucaptcha?'+(new Date()).getTime());
+});
+});
 //********** 高亮 **********
 $(document).on('page:change', function () {
   hljs.initHighlightingOnLoad();

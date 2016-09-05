@@ -11,8 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20160823144752) do
+ActiveRecord::Schema.define(version: 20160903052204) do
 
   create_table "albums", force: :cascade do |t|
     t.text     "description"
@@ -56,6 +55,16 @@ ActiveRecord::Schema.define(version: 20160823144752) do
 
   add_index "microblogs", ["category_id"], name: "index_microblogs_on_category_id"
 
+  create_table "options", force: :cascade do |t|
+    t.string   "site_header"
+    t.string   "site_sub_header"
+    t.string   "user_name"
+    t.string   "password"
+    t.string   "email"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
   create_table "posts", force: :cascade do |t|
     t.string   "post_title"
     t.text     "post_text"
@@ -66,5 +75,16 @@ ActiveRecord::Schema.define(version: 20160823144752) do
   end
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
+
+  create_table "settings", force: :cascade do |t|
+    t.string   "var",                   null: false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", limit: 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true
 
 end

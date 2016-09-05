@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, except: [:index, :show]
 
   # def redirect_to_category_which_url(category)
   #   case @category.category_type
@@ -33,6 +33,8 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @categories = Category.all #例外，只是为了show视图的最上面
     @albums = @category.albums.paginate(page: params[:page], per_page: 12)
+    @posts = @category.posts.paginate(page: params[:page], per_page: 1)
+    @microblogs = @category.microblogs.paginate(page: params[:page], per_page: 1)
   end
 
   def index

@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  # Captcha
+  mount RuCaptcha::Engine => "/rucaptcha"
+  # rails settings cached
+  namespace :admin do
+    resources :settings
+  end
+  resources :options
+
   # root 'welcome#index'
   root 'categories#show'
 
@@ -9,7 +17,7 @@ Rails.application.routes.draw do
         resources :comments
       end
     end
-    
+
   post 'upload' => 'upload#image'
   get 'signup' => 'users#new'
   get 'me' => 'me#paper'

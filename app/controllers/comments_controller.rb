@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  http_basic_authenticate_with name: "lulu", password: "secret", only: :destroy
+  http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, only: :destroy
 
   def create
     @categories = Category.all #我也不知道为什么要有这个，但没有这个会有错误
@@ -20,8 +20,12 @@ class CommentsController < ApplicationController
     #   render template: "posts/show"
     # end
     #其实上面的写法不是很机智，可以不用if else 判断，因为无论保存成功或失败，都是然后再渲染同一个页面，
-    @comment = @post.comments.create(comment_params)
-    redirect_to category_post_path(@category, @post)
+    @comment = @post.comments.new(comment_params)
+    if verify_rucaptcha?(@comment)&&@comment.save
+      redirect_to category_post_path(@category, @post)
+    else
+      render template: "posts/show"
+    end
   end
 
   def index

@@ -43,6 +43,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'fog'
 # 分页
   gem 'will_paginate'
+# 验证码
+  gem 'rucaptcha'
+# rails settings cached
+  gem "rails-settings-cached"
 
   gem 'mina-unicorn', :require => false
   gem 'unicorn'

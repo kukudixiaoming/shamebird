@@ -1,6 +1,6 @@
 class MicroblogsController < ApplicationController
 
-  http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, except: [:index, :show]
 
   def new
     @category = Category.find(params[:category_id])

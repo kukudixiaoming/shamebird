@@ -1,0 +1,19 @@
+<div class="settings-edit">
+<div class="ui text container">
+  <br/>
+  <div class="ui white inverted segment">
+    <h1 class="ui grey header">
+      设置
+    </h1>
+<%= form_for(@setting, url: admin_setting_path(@setting.var), method: 'patch', html: {class: "ui form"}) do |f| %>
+    <div class="field">
+    <label><%= @setting.var %></label>
+    <%= f.text_area :value, rows: 10, class: "category-input" %>
+    </div>
+    <%= f.submit class:"ui submit fluid button" %>
+<% end %>
+    <br/>
+  </div>
+  <br/>
+</div>
+</div>

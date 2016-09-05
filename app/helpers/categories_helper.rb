@@ -41,7 +41,7 @@ module CategoriesHelper
     case category_type
     # when 1,3
     #   render partial: "posts/post1", collection: @category.posts.reverse
-  when "post"
+    when "post"
       render 'posts/posts'
     when "microblog"
       render 'microblogs/microblogs'

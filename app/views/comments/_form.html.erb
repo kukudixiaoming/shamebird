@@ -13,7 +13,13 @@
       <%= f.text_field :comment_site, class: "category-input", placeholder: "网站或weibo（选填）", autocomplete: "off" %>
     </div>
     <div class="field">
-      <%= f.text_area :comment_text, class: "category-input", placeholder: "做一个思考者吧！", autocomplete: "off" %>
+      <%= f.text_area :comment_text, class: "category-input", placeholder: "在这里评论", autocomplete: "off" %>
+    </div>
+    <div class="field">
+    <div class="ui labeled input">
+      <%= rucaptcha_input_tag(class: "category-input", placeholder: "验证码") %>
+      <a class="ui basic image big label captcha_link"><%= rucaptcha_image_tag(alt: "Captcha") %> 看不清楚换一个 </a>
+    </div>
     </div>
 
     使用<a href="https://gravatar.com/">Gravatar</a>设置全球通用头像<br/><br/>

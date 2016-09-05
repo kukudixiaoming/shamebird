@@ -1,6 +1,6 @@
 class AlbumsController < ApplicationController
 
-  http_basic_authenticate_with name: "lulu", password: "secret", except: [:index, :show]
+  http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, except: [:index, :show]
 
   def new
     @category = Category.find(params[:category_id])
@@ -17,11 +17,11 @@ class AlbumsController < ApplicationController
     end
   end
 
-  def index
-    @categories = Category.all
-    @category = Category.find(params[:category_id])
-    @albums = Album.paginate(page: params[:page], per_page: 12)
-  end
+  # def index
+  #   @categories = Category.all
+  #   @category = Category.find(params[:category_id])
+  #   @albums = Album.paginate(page: params[:page], per_page: 12)
+  # end
 
   def edit
     @category = Category.find(params[:category_id])

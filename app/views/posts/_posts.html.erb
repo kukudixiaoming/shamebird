@@ -48,6 +48,7 @@
           <%= raw cutpost(post.post_text, category_post_path(@category, post)) %>
         </div>
     <% end %>
+    <%= will_paginate @posts %>
   </div>
 </div>
 

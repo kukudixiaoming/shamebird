@@ -1,0 +1,16 @@
+# config/app.yml for rails-settings-cached
+defaults: &defaults
+  Site_Header: "ShameBird"
+  Site_Sub_Header: "Hello world!"
+  User_Name: "lulu"
+  Password: "secret"
+  Email: "example@example.com"
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+production:
+  <<: *defaults
