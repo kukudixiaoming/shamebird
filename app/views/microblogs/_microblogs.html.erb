@@ -26,7 +26,7 @@
     <% if @category.microblogs.count == 0 %>
         <center class="site-sub-header"><h2>还没有内容(ｏ・_・)ノ”(ノ_<。)</h2></center>
     <% else %>
-        <% @category.microblogs.reverse.each do |mb| %>
+        <% @microblogs.reverse.each do |mb| %>
             <div class="posts-timeline">
               <div class="post-timeline">
                 <h3 class="site-sub-header">

@@ -32,9 +32,9 @@ class CategoriesController < ApplicationController
     params[:id] = "#{Category.first.id}" if params[:id] == nil
     @category = Category.find(params[:id])
     @categories = Category.all #例外，只是为了show视图的最上面
-    @albums = @category.albums.paginate(page: params[:page], per_page: 12)
-    @posts = @category.posts.paginate(page: params[:page], per_page: 1)
-    @microblogs = @category.microblogs.paginate(page: params[:page], per_page: 1)
+    @albums = @category.albums.paginate(page: params[:page], per_page: Setting.Albums_Paginate)
+    @posts = @category.posts.paginate(page: params[:page], per_page: Setting.Posts_Paginate)
+    @microblogs = @category.microblogs.paginate(page: params[:page], per_page: Setting.Microblogs_Paginate)
   end
 
   def index

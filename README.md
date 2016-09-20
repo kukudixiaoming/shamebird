@@ -1,10 +1,10 @@
 ## ShameBird Alone Version
 ![Shame Bird Look](http://7xi85m.com1.z0.glb.clouddn.com/shamebird.png)
-### 关于 ShameBird
+### About ShameBird
 
 ---
- ShameBird 是一个简单的博客程序，使用Rails构建,现在还在开发中，已经进入了收尾阶段。
-### 功能
+ ShameBird is a sample blog application，build with rails,now is under the development,just has little things to do.
+### Function
 
 ---
  - 支持分类功能，通过选择不同的分类类型，来实现不同的记录方式
@@ -29,7 +29,60 @@
  -	Deployment instructions
  -	...  
  Please feel free to use a different markup language if you do not plan to run`rake doc:app`.
+### 部署
 
+---
+    # login your server as root
+    ssh root@yourIpAdress
+    # add deploy user
+    sudo adduser deploy
+    # add deploy user to sudo group
+    sudo adduser deploy sudo
+    # switch to deploy user
+    su deploy
+    # update your server system
+    sudo apt-get update
+    # resolve the system dependencies
+    sudo apt-get install git-core curl zlib1g-dev build-essential libssl-dev libreadline-dev libyaml-dev libsqlite3-dev 
+    sqlite3 libxml2-dev libxslt1-dev libcurl4-openssl-dev python-software-properties libffi-dev
+    cd
+    # install rbenv
+    git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+    echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
+    echo 'eval "$(rbenv init -)"' >> ~/.bashrc
+    exec $SHELL
+    git clone https://github.com/rbenv/ruby-build.git ~/.rbenv/plugins/ruby-build
+    echo 'export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"' >> ~/.bashrc
+    exec $SHELL
+    # list the available ruby virsion
+    rbenv install -l
+    # only for Chinese
+    git clone https://github.com/andorchen/rbenv-china-mirror.git ~/.rbenv/plugins/rbenv-china-mirror
+    # use the rbenv to install ruby 2.3.1
+    rbenv install 2.3.1
+    # use ruby 2.3.1 as default
+    rbenv global 2.3.1
+    ruby -v
+    # just for Chinese
+    gem sources --add https://ruby.taobao.org/ --remove https://rubygems.org/
+    gem sources -l
+    gem install bundler
+    rbenv rehash
+    # install Nodejs
+    sudo apt-get install nodejs
+    # install PostgreSQL
+    sudo apt-get install postgresql postgresql-contrib libpq-dev
+    # set postgres user
+    sudo su - postgres
+    createuser --pwprompt
+    exit
+    sudo mkdir -p /var/www/shamebird
+    sudo chown deploy:deploy /var/www/shamebird
+    # just for Chinese
+    bundle config mirror.https://rubygems.org https://ruby.taobao.org
+    bundle install
+
+    
 ### LICENSE
 
 ---

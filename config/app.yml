@@ -5,6 +5,10 @@ defaults: &defaults
   User_Name: "lulu"
   Password: "secret"
   Email: "example@example.com"
+  Posts_Paginate: "6"
+  Microblogs_Paginate: "10"
+  Albums_Paginate: "12"
+
 
 development:
   <<: *defaults
