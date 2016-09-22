@@ -72,7 +72,7 @@ $("body.posts-new, body.posts-edit, body.posts-create, body.posts-update").ready
 //********** 使 .post-text 中的图片居中，给图片加一个父元素div **********
 $(document).on('page:change', function () {
   $(".post-text img").wrap("<div class='cover'></div>");
-  $(".cover").addClass("cover");
+  //$(".cover").addClass("cover");
   $(".cover img").addClass("imgshow");
 });
 
@@ -176,7 +176,13 @@ $(".captcha_link").click(function () {
 });
 });
 //********** 高亮 **********
-$(document).on('page:change', function () {
+/*$(document).on('page:change', function () {
   hljs.initHighlightingOnLoad();
+});*/
+
+$(document).on('page:change', function () {
+  $('pre code').each(function(i, block) {
+    hljs.highlightBlock(block);
+  });
 });
 console.log(' powered by .shamebird (=￣ω￣=)');

@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   root 'categories#show'
 
-    resources :categories do
-      resources :microblogs
-      resources :albums
-      resources :posts do
-        resources :comments
-      end
+  resources :categories do
+    resources :microblogs
+    resources :albums
+    resources :posts do
+      resources :comments
     end
+  end
 
   post 'upload' => 'upload#image'
   get 'signup' => 'users#new'
