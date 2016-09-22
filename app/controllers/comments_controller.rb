@@ -24,14 +24,16 @@ class CommentsController < ApplicationController
     if verify_rucaptcha?(@comment)&&@comment.save
       redirect_to category_post_path(@category, @post)
     else
-      render template: "posts/show"
+      #render template: "posts/show"
+      render html: "<strong>表单填写错误请重新填写</strong>".html_safe
     end
   end
 
   def index
-    @category = Category.find(params[:category_id])
-    @post = Post.find(params[:post_id])
-    @comments = Comment.all
+    #@category = Category.find(params[:category_id])
+    #@post = Post.find(params[:post_id])
+    #@comments = Comment.all
+    @comments = Comment.paginate(page: params[:page], per_page: Setting.Comments_Paginate)
   end
 
   def destroy

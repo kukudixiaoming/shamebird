@@ -11,7 +11,7 @@ module ApplicationHelper
       when "update"
         action_name = "更新"
     end
-    if params[:controller] != "admin/settings"
+    if (params[:controller] != "admin/settings")&&(params[:controller] != "comments")
       if @category.category_name == nil
         category_name = "分类"
       else
@@ -38,8 +38,10 @@ module ApplicationHelper
       else
         "#{action_name}·#{@post.post_title}-#{@category.category_name}-#{Setting.Site_Header}"
       end
-    else
+    elsif params[:controller] == "admin/settings"
       "setting-#{Setting.Site_Header}"
+    else
+      "评论"
     end
   end
 end

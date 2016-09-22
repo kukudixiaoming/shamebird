@@ -26,47 +26,50 @@
 
 
 //********** 初始化 simditor 编辑器 **********
+
 $("body.posts-new, body.posts-edit, body.posts-create, body.posts-update").ready(function () {
-  var editor = new Simditor({
-    textarea: $('#editor'),
-    //optional options
-    //markdown: true,
-    toolbar: [
-      'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', 'fontScale',
-      'checklist', '|', 'ol', 'ul', 'blockquote', 'hr', 'indent', 'outdent',
-      'alignment', '|', 'code', 'table', 'link', 'image', 'emoji', 'markdown',
-      'fullscreen'
-    ],
-    upload: {
+  if ($('#editor')[0]) {
+    var editor = new Simditor({
+      textarea: $('#editor'),
+      //optional options
+      //markdown: true,
+      toolbar: [
+        'title', 'bold', 'italic', 'underline', 'strikethrough', 'color', 'fontScale',
+        'checklist', '|', 'ol', 'ul', 'blockquote', 'hr', 'indent', 'outdent',
+        'alignment', '|', 'code', 'table', 'link', 'image', 'emoji', 'markdown',
+        'fullscreen'
+      ],
+      upload: {
 
-      url: '/upload',
+        url: '/upload',
 
-      params: {
+        params: {
 
-        "authenticity_token": "#{form_authenticity_token.to_s}"
+          "authenticity_token": "#{form_authenticity_token.to_s}"
+
+        },
+
+        fileKey: 'upload_file',
+
+        connectionCount: 3,
+
+        leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
 
       },
 
-      fileKey: 'upload_file',
 
-      connectionCount: 3,
+      placeholder: '',
+      pasteImage: true,
+      defaultImage: '/images/image.png',
+      // upload: '../../../images/upload/',
+      emoji: {
+        imagePath: '/images/emoji'
+      },
+      autosavePath: '/editor-content/new/autosave',
+      autosave: false
+    });
 
-      leaveConfirm: 'Uploading is in progress, are you sure to leave this page?'
-
-    },
-
-
-    placeholder: '',
-    pasteImage: true,
-    defaultImage: '/images/image.png',
-    // upload: '../../../images/upload/',
-    emoji: {
-      imagePath: '/images/emoji'
-    },
-    autosavePath: '/editor-content/new/autosave',
-    autosave: false
-  });
-
+  }
 });
 
 //********** 使 .post-text 中的图片居中，给图片加一个父元素div **********
@@ -153,21 +156,24 @@ $(document).on('page:change', function () {
 
   });
 
+if($('.imgshow')[0]){
   $('.ui.basic.modal')
       .modal({
         inverted: true
       })
       .modal('attach events', '.imgshow', 'show')
   ;
-
+}
 
 });
 
 //********** 删除 post-text 中的 moremore **********
 $(document).on('page:change', function () {
 // var str = document.getElementById("post-text").innerHTML;
-  var $str = $(".post-text").html().replace("moremore", "");
-  $(".post-text.post-page").html($str);
+  if($(".post-text")[0]) {
+    var $str = $(".post-text").html().replace("moremore", "");
+    $(".post-text.post-page").html($str);
+  }
 });
 //********** 验证码刷新 **********
 $(document).on('page:change', function () {

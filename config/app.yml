@@ -8,6 +8,7 @@ defaults: &defaults
   Posts_Paginate: "6"
   Microblogs_Paginate: "10"
   Albums_Paginate: "12"
+  Comments_Paginate: "20"
   Theme_Color: "#dd2333"
 
 
