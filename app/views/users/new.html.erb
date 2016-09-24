@@ -1,2 +1,59 @@
-<h1>欢迎主淫回来</h1>
-<p>乱入死个妈</p>
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <%= image_tag("logo.gif", alt: "logo", class: "image") %>
+      <div class="content">
+        注册
+      </div>
+    </h2>
+    <%= form_for(@user, html: {class: "ui form"}) do |f| %>
+        <div class="ui stacked segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <%= f.text_field :name, placeholder: "用户名" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="mail icon"></i>
+              <%= f.text_field :email, placeholder: "邮箱" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <%= f.password_field :password, placeholder: "密码" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <%= f.password_field :password_confirmation, placeholder: "确认密码" %>
+            </div>
+          </div>
+          <%= f.submit "注册", class: "ui fluid large teal submit button" %>
+        </div>
+        <% if @user.errors.any? %>
+            <script>
+              $(".ui.form").addClass("error");
+              $(".field_with_errors").parent().addClass("error");
+            </script>
+            <div class="ui error message">
+              <div class="header">
+                The form contains
+                <%= pluralize(@user.errors.count, "error") %>.
+              </div>
+              <ul class="list">
+                <% @category.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+        <% end %>
+    <% end %>
+    <div class="ui message">
+      已经注册过? <a href="#">登录</a>
+    </div>
+  </div>
+</div>

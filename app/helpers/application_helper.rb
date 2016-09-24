@@ -11,7 +11,7 @@ module ApplicationHelper
       when "update"
         action_name = "更新"
     end
-    if (params[:controller] != "admin/settings")&&(params[:controller] != "comments")
+    if (params[:controller] != "admin/settings")&&(params[:controller] != "comments")&&(params[:controller] != "users")
       if @category.category_name == nil
         category_name = "分类"
       else
@@ -29,17 +29,19 @@ module ApplicationHelper
 =end
 
       if (params[:controller] == "categories"&&params[:action] == "show")||(params[:controller] != "categories"&&params[:controller] != "posts"&&params[:action] == "show")
-        "#{@category.category_name}-#{Setting.Site_Header}"
+        "#{@category.category_name} - #{Setting.Site_Header}"
       elsif (params[:controller] == "categories"&&params[:action] != "show")||(params[:controller] != "categories"&&params[:controller] != "posts"&&params[:action] != "show")
-        "#{action_name}·#{category_name}-#{Setting.Site_Header}"
+        "#{action_name} · #{category_name} - #{Setting.Site_Header}"
       elsif params[:controller] == "posts"&&params[:action] == "show"
-        "#{@post.post_title}-#{@category.category_name}-#{Setting.Site_Header}"
+        "#{@post.post_title} - #{@category.category_name} - #{Setting.Site_Header}"
         # elsif params[:controller] == "posts"&&params[:action] != "show"
       else
-        "#{action_name}·#{@post.post_title}-#{@category.category_name}-#{Setting.Site_Header}"
+        "#{action_name} · #{@post.post_title} - #{@category.category_name} - #{Setting.Site_Header}"
       end
     elsif params[:controller] == "admin/settings"
-      "setting-#{Setting.Site_Header}"
+      "setting - #{Setting.Site_Header}"
+    elsif params[:controller] == "users"&&params[:action] == "new"
+      "注册 - 用户 - #{Setting.Site_Header}"
     else
       "评论"
     end

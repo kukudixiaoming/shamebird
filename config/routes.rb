@@ -20,7 +20,7 @@ Rails.application.routes.draw do
 
   post 'upload' => 'upload#image'
   get 'comments' => 'comments#index'
-  # get 'signup' => 'users#new'
+  get 'signup' => 'users#new'
   # get 'me' => 'me#paper'
   
   # The priority is based upon order of creation: first created -> highest priority.
