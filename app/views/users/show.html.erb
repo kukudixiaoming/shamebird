@@ -1,0 +1,18 @@
+<div class="ui container">
+  <br/>
+  <h1 class="ui inverted center aligned header">
+    用户设置
+  </h1>
+  <div class="ui white inverted segment">
+    <h2 class="ui grey header">
+      <%= gravatar_for_user @user %>
+      <div class="content"><%= @user.name %> <div class="sub header">Check out our plug-in marketplace</div>
+      </div>
+    </h2>
+    <!--<h3 class="ui grey header"><i class="green user icon"></i><%= @user.name %></h3>-->
+    <h4 class="ui grey header"><i class="green mail icon"></i><%= @user.email %></h4>
+    <%= link_to "退出登录", logout_path, method: "delete", class: "ui yellow button" %>
+    <br/>
+  </div>
+  </br>
+</div>

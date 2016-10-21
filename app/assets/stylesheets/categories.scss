@@ -78,9 +78,16 @@ a.category-header-link {
   border-radius: 0.3em;
 }
 
+/*.special-image-cover {
+  height: 250px;
+  text-align: center;
+  background-image: url("bg.png");
+  overflow: hidden;
+}*/
 .post-special-image {
   height: auto;
   max-width: 100%;
+  //width: 95%;
   vertical-align: middle;
 }
 

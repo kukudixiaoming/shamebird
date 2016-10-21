@@ -121,6 +121,15 @@ $(document).on('page:change', function () {
 
 //********** semantic-ui js **********
 $(document).on('page:change', function () {
+  $('.message .close')
+      .on('click', function() {
+        $(this)
+            .closest('.message')
+            .transition('fade')
+        ;
+      })
+  ;
+
   $('.ui.accordion')
       .accordion()
   ;

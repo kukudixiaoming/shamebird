@@ -10,7 +10,7 @@
 <% @comments.reverse.each do |comment| %>
     <div class="comment" id="<%= comment.id %>">
       <a class="avatar">
-        <%= gravatar_for(comment) %>
+        <%= gravatar_for_commenter(comment) %>
       </a>
       <div class="content">
         <%= link_to comment.comment_author, "http://#{comment.comment_site}", class: "author" %>

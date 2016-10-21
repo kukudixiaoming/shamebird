@@ -37,9 +37,11 @@
               <%= post.post_title %>
           <% end %>
         </h1>
-        <!-- 特色图 begin-->
-        <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %> <!-- 解除注释启用特色图，自己改css吧233333 -->
-        <!-- 特色图 end-->
+        <div class="special-image-cover">
+          <!-- 特色图 begin-->
+          <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %> <!-- 解除注释启用特色图，自己改css吧233333 -->
+          <!-- 特色图 end-->
+        </div>
         <h5 class="site-sub-header">
           <%= post.created_at.localtime.strftime("%Y年%m月%d日") %>
         </h5>

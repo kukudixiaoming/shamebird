@@ -39,19 +39,21 @@
   <div class="sixteen wide mobile sixteen wide tablet two wide computer column">
   <br/><br/><br/>
     <div class="ui white inverted segment">
+      <h4 class="ui grey center aligned header">特色图片</h4>
       <div class="field">
         <!-- <%= f.label :post_image, "特色图" %> -->
         <!-- <%= f.text_field :post_image, class: "post-image-field", placeholder: "分类图（请填写图片url）", autocomplete: "off" %> -->
         <%= f.file_field :post_image, accept: 'image/jpeg,image/gif,image/png' %>
       </div>
-      <h4 class="ui grey header">特色图片</h4>
+      <br/>
       <% if @post.post_image? %>
       <%= image_tag(@post.post_image.url, class: "ui image fixheight imgshow tempimgshow") %>
     <% else %>
       <%= image_tag("sample_image.png", class: "ui image fixheight imgshow tempimgshow") %>
       <% end %>
-
       <br/>
+      <a class="ui fluid button" id="del-specil-img-button">删除图片</a>
+
       <% if @post.errors.any? %>
       <script>
         $(".ui.form").addClass("error");
@@ -59,9 +61,11 @@
       </script>
       <% end %>
 
-      <%= f.submit "完成", class: "ui submit fluid button" %>
-      <% end %>
     </div>
+    <br/>
+    <%= f.submit "发布", class: "ui submit fluid green button" %>
+    <% end %>
+
   </div>
 </div>
 
@@ -88,4 +92,7 @@
     }
 
   });
+    $("#del-specil-img-button").bind("click", function(){
+
+    })
 </script>

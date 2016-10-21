@@ -35,11 +35,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= " #{params[:controller]}-#{params[:action]}" %>">
-
+<%= semantic_flash %>
 <%= yield %>
 
 <div class="full-width-footer">
-  <div class="copy-text">
+  <div class="copy-text inverted">
     <%= copy_year('2016') %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= Setting.User_Name %>&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;code&design with heart&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;powered by
     <em style="color:rgb(224, 21, 21);">.

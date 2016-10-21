@@ -1,0 +1,38 @@
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui inverted image header">
+      <%= image_tag("shamebird.png", alt: "logo", class: "ui tiny image") %>
+      <br/>
+      <div class="content">
+        <%= Setting.Site_Header %> · 登录
+      </div>
+    </h2>
+    <%= form_for(:session, url: login_path, html: {class: "ui form"}) do |f| %>
+        <div class="ui stacked segment">
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="mail icon"></i>
+              <%= f.text_field :email, placeholder: "邮箱" %>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <%= f.password_field :password, placeholder: "密码" %>
+            </div>
+          </div>
+          <div class="inline field remember_me">
+            <div class="ui checkbox">
+              <%= f.check_box :remember_me, tabindex: "0", class: "hidden" %>
+              <%= f.label(:remember_me, "在这台设备上记住我") %>
+            </div>
+          </div>
+          <%= f.submit "登录", class: "ui fluid large blue submit button" %>
+        </div>
+    <% end %>
+    <div class="ui message">
+      新用户? 现在<a href="#">注册</a>
+    </div>
+  </div>
+</div>
+

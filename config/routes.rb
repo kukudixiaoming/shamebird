@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
+
+  root 'categories#show'
   # Captcha
   mount RuCaptcha::Engine => "/rucaptcha"
   # rails settings cached
   namespace :admin do
     resources :settings
   end
-  resources :options
+  #resources :options
 
   # root 'welcome#index'
-  root 'categories#show'
 
   resources :categories do
     resources :microblogs
@@ -18,9 +19,14 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :users
+
   post 'upload' => 'upload#image'
   get 'comments' => 'comments#index'
   get 'signup' => 'users#new'
+  get 'login' => 'sessions#new'
+  post 'login' => 'sessions#create'
+  delete 'logout' => 'sessions#destroy'
   # get 'me' => 'me#paper'
   
   # The priority is based upon order of creation: first created -> highest priority.

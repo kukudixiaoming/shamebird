@@ -1,3 +1,19 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body.users-new, body.users-edit, body.users-create, body.users-update, body.sessions-new, body.sessions-create, body.sessions-destroy {
+  background-color: #2185D0;
+  //background-image: url(bg.png);
+  /*>.ui.container{
+    height: 100%;
+  }*/
+  .grid {
+    height: 97%;
+    >.column {
+      max-width: 450px;
+    }
+  }
+}
+body.users-show {
+  background-color: #2185D0;
+}

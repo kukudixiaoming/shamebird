@@ -5,7 +5,8 @@
 html {
   font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB",
   "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
-  overflow: auto;
+  //可以修正图片弹出后抖动的bug,但也会引起无限加载的bug
+  //overflow: auto;
 }
 
 //.ui.header {

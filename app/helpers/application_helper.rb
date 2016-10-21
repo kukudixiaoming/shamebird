@@ -11,7 +11,7 @@ module ApplicationHelper
       when "update"
         action_name = "更新"
     end
-    if (params[:controller] != "admin/settings")&&(params[:controller] != "comments")&&(params[:controller] != "users")
+    if (params[:controller] != "admin/settings")&&(params[:controller] != "comments")&&(params[:controller] != "users")&&(params[:controller] != "sessions")
       if @category.category_name == nil
         category_name = "分类"
       else
@@ -40,8 +40,8 @@ module ApplicationHelper
       end
     elsif params[:controller] == "admin/settings"
       "setting - #{Setting.Site_Header}"
-    elsif params[:controller] == "users"&&params[:action] == "new"
-      "注册 - 用户 - #{Setting.Site_Header}"
+    elsif params[:controller] == "users"
+      "#{action_name} · 用户 - #{Setting.Site_Header}"
     else
       "评论"
     end
