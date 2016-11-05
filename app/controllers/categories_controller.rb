@@ -1,6 +1,7 @@
 class CategoriesController < ApplicationController
 
-  http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, except: [:index, :show]
+  # http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, except: [:index, :show]
+  before_action :logged_in_user, except: [:index, :show]
 
   # def redirect_to_category_which_url(category)
   #   case @category.category_type

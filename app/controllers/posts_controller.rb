@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
 
-  http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, except: [:index, :show]
+  # http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, except: [:index, :show]
+  before_action :logged_in_user, except: [:index, :show]
 
   def new
+    @categories = Category.all
     @category = Category.find(params[:category_id])
     @post = @category.posts.new
   end

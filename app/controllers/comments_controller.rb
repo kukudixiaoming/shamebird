@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
-  http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, only: :destroy
+  # http_basic_authenticate_with name: Setting.User_Name, password: Setting.Password, only: :destroy
+  before_action :logged_in_user, only: :destroy
 
   def create
     @categories = Category.all #我也不知道为什么要有这个，但没有这个会有错误

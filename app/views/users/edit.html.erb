@@ -4,24 +4,24 @@
       <%= image_tag("shamebird.png", alt: "logo", class: "ui tiny image") %>
       <br/>
       <div class="content">
-         <%= Setting.Site_Header %> · 注册
+        <%= Setting.Site_Header %> · 注册
       </div>
     </h2>
     <%= form_for(@user, html: {class: "ui form"}) do |f| %>
         <div class="ui stacked segment">
           <div class="field">
-              <%= f.text_field :name, placeholder: "用户名" %>
+            <%= f.text_field :name, placeholder: "用户名" %>
           </div>
           <div class="field">
-              <%= f.text_field :email, placeholder: "邮箱" %>
+            <%= f.text_field :email, placeholder: "邮箱" %>
           </div>
           <div class="field">
-              <%= f.password_field :password, placeholder: "密码" %>
+            <%= f.password_field :password, placeholder: "密码" %>
           </div>
           <div class="field">
-              <%= f.password_field :password_confirmation, placeholder: "确认密码" %>
+            <%= f.password_field :password_confirmation, placeholder: "确认密码" %>
           </div>
-          <%= f.submit "注册", class: "ui fluid large blue submit button" %>
+          <%= f.submit "更新", class: "ui fluid large blue submit button" %>
         </div>
         <% if @user.errors.any? %>
             <script>
