@@ -1,6 +1,5 @@
-<div class="ui container category-block">
-
-  <div class="ui center aligned category-block-border">
+<br/>
+<div class="ui center aligned category-block-border container">
     <h1 class="ui header">
       <%= image_tag(@category.category_image.url, class: "ui circular image",
                     alt: @category.category_name) if @category.category_image? %>
@@ -18,8 +17,11 @@
       <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm: '确定要删除吗？'} %>
     </div>
   </div>
+<br/>
+<br/>
+</div>
 
-  <div class="sb-main-content">
+  <div class="ui container category-block">
 
     <!-- 瀑布流布局 -->
     <div id="masonry" class="container-fluid">
@@ -47,7 +49,6 @@
     <%= will_paginate @albums %>
 
   </div>
-</div>
 
 <div class="ui basic modal">
   <!-- 原先的，下面的语句替代了这个<div class="ui icon header"> -->

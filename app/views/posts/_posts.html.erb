@@ -1,27 +1,29 @@
-<div class="ui container category-block">
-
-  <div class="ui center aligned category-block-border">
-    <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
-    <h1 class="ui header">
-      <%= image_tag(@category.category_image.url, class: "ui circular image",
-                    alt: @category.category_name) if @category.category_image? %>
-      <div class="content">
-        <%= @category.category_name %>
-        <div class="sub header black-header"><%= @category.category_brief %></div>
-      </div>
-    </h1>
-    <br/>
-    <div class="cat-link">
-      <%= link_to '新建文章', new_category_post_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
-      <!-- <%= link_to '新建文章', new_category_post_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp; -->
-      <%= link_to '添加分类', new_category_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-      <%= link_to '编辑分类', edit_category_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp;
-      <%= link_to '全部分类', categories_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-      <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm: '确定要删除吗？'} %>
+<br/>
+<div class="ui center aligned category-block-border container">
+  <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
+  <h1 class="ui header">
+    <%= image_tag(@category.category_image.url, class: "ui circular image",
+                  alt: @category.category_name) if @category.category_image? %>
+    <div class="content">
+      <%= @category.category_name %>
+      <div class="sub header black-header"><%= @category.category_brief %></div>
     </div>
+  </h1>
+  <br/>
+  <div class="cat-link">
+    <%= link_to '新建文章', new_category_post_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <!-- <%= link_to '新建文章', new_category_post_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp; -->
+    <%= link_to '添加分类', new_category_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to '编辑分类', edit_category_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to '全部分类', categories_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+    <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm: '确定要删除吗？'} %>
   </div>
+</div>
+<br/>
+<br/>
+</div>
 
-  <div class="sb-main-content">
+<div class="ui container category-block">
 
     <% if @category.posts.count == 0 %>
         <center class="site-sub-header"><h2>还没有内容(ｏ・_・)ノ”(ノ_<。)</h2></center>
@@ -51,7 +53,6 @@
         </div>
     <% end %>
     <%= will_paginate @posts %>
-  </div>
 </div>
 
 <br/>

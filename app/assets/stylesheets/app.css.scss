@@ -39,6 +39,21 @@ html {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+.header-bg {
+  background-repeat:no-repeat;
+  background-attachment:fixed;
+  background-position:center;
+}
+.blur {
+  filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */
+
+  -webkit-filter: blur(10px); /* Chrome, Opera */
+  -moz-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+
+  filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+}
 //.fir-bar {
 //  background-color: #2185D0;
 //}

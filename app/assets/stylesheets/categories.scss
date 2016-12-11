@@ -114,15 +114,16 @@ a.post-title-link {
 }
 
 .category-block-border {
-  // display: none;
   text-align: center;
-  background-color: white;
   // padding: 1.7em 2em 1.5em;
   padding-top: 1.7em;
   padding-bottom: 1.5em;
   // margin-top: 2em;
-  border: 3px dashed #dd2333;
+  //border: 3px dashed #dd2333;
   border-radius: 0.5em;
+  background-color: rgba(173, 202, 204, 0.24);
+  //background-image: url(bg.png);
+  //border: 3px dashed #767676;
 }
 
 .category-block {
@@ -141,9 +142,9 @@ a.post-title-link {
 
 }
 
-.sb-main-content {
-  margin-top: 2.6em;
-}
+///*.sb-main-content {
+//  margin-top: 2.6em;
+//}*/
 
 div.post-text {
   line-height: 1.9em;

@@ -40,6 +40,12 @@
     sudo adduser deploy sudo
     # switch to deploy user
     su deploy
+    exit
+    exit
+    # run this command in your local computer rather than your server
+    ssh-copy-id deploy@IPADDRESS
+    
+    ssh deploy@IPADDRESS
     # update your server system
     sudo apt-get update
     # resolve the system dependencies
@@ -72,12 +78,38 @@
     sudo apt-get install nodejs
     # install PostgreSQL
     sudo apt-get install postgresql postgresql-contrib libpq-dev
-    # set postgres user
-    sudo su - postgres
-    createuser --pwprompt
+    sudo -u postgres createuser --superuser dbuser
+    sudo -u postgres psql
+    \password dbuser
+    \q
+    sudo -u postgres createdb -O dbuser shamebird_db
+    ### create a new linux user 'dbuser'
+    ## sudo adduser dbuser
+    ### switch to user postgres
+    ## sudo su - postgres
+    ### login PostgreSQL console
+    ## psql
+    ### set password for database user 'postgres'
+    ## \password postgres
+    ### create database user 'dbuser' and set password
+    ## CREATE USER dbuser WITH PASSWORD 'password'
+    ### create database 'shamebird_db' and set owner
+    ## CREATE DATABASE shamebird_db OWNER dbuser
+    ### 将数据库 'shamebird_db' 的所有权限赋给数据库用户 'dbuser'
+    ## GRANT ALL PRIVILEGES ON DATABASE shamebird_db to dbuser
+    ### exit PostgreSQL console
+    ## \q
+    ### set postgres user
+    ## sudo su - postgres
+    ## createuser --pwprompt
     exit
+    # install Nginx
+    sudo apt-get install nginx
     sudo mkdir -p /var/www/shamebird
     sudo chown deploy:deploy /var/www/shamebird
+    # run this command on your local computer
+    mina setup
+    mina deploy
     # just for Chinese
     bundle config mirror.https://rubygems.org https://ruby.taobao.org
     bundle install

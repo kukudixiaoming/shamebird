@@ -10,6 +10,8 @@ defaults: &defaults
   Albums_Paginate: "12"
   Comments_Paginate: "20"
   Theme_Color: "#dd2333"
+  Banner_Image: "s.jpg"
+  Banner_Background_Color: "#dd2333"
 
 
 development:
