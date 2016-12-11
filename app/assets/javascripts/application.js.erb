@@ -205,5 +205,7 @@ $(document).on('page:change', function () {
  */
 $(document).on('page:change', function () {
   $(".admin\\/settings-index, .admin\\/settings-edit").css("background", "#f8f8f9");
+  $(".header-bg").css({"background-image": "url(<%= asset_url(Setting.Banner_Image) %>)",
+    "background-color": "<%= Setting.Banner_Background_Color %>"});
 });
 console.log(' powered by .shamebird (=￣ω￣=)');
