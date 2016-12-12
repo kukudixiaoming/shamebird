@@ -1,14 +1,14 @@
 <br/>
 <div class="ui center aligned category-block-border container">
   <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
-  <h1 class="ui header">
+  <h2 class="ui header site-header">
     <%= image_tag(@category.category_image.url, class: "ui circular image",
                   alt: @category.category_name) if @category.category_image? %>
     <div class="content">
       <%= @category.category_name %>
-      <div class="sub header black-header"><%= @category.category_brief %></div>
+      <div class="ui sub header site-header"><%= @category.category_brief %></div>
     </div>
-  </h1>
+  </h2>
   <br/>
   <div class="cat-link">
     <%= link_to '新建文章', new_category_post_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
@@ -34,19 +34,21 @@
         <!-- <%= image_tag(post.post_image, class: "post-image", alt: post.post_title) %> -->
 
 
-        <h1 class="site-header">
+        <h1 class="ui center aligned header site-header">
           <%= link_to category_post_path(@category, post), class: "post-title-link" do %>
               <%= post.post_title %>
           <% end %>
         </h1>
-        <div class="special-image-cover">
-          <!-- 特色图 begin-->
-          <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %> <!-- 解除注释启用特色图，自己改css吧233333 -->
-          <!-- 特色图 end-->
-        </div>
-        <h5 class="site-sub-header">
+        <h5 class="ui center aligned header site-sub-header">
           <%= post.created_at.localtime.strftime("%Y年%m月%d日") %>
         </h5>
+      <div class="special-image-cover ui text container">
+        <!-- 特色图 begin-->
+        <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %> <!-- 解除注释启用特色图，自己改css吧233333 -->
+        <!-- 特色图 end-->
+      </div>
+      <br/>
+      <br/>
         <!-- <div class="post-text"><%= sanitize post.post_text %></div> -->
         <div class="post-text editor-style">
           <%= raw cutpost(post.post_text, category_post_path(@category, post)) %>

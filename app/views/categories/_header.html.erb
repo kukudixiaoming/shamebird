@@ -2,13 +2,13 @@
 background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
 <div class="full-width-header ui container">
   <div class="ui grid">
-    <div class="sixteen wide mobile sixteen wide tablet four wide computer column">
-      <h1 class="site-header">
+    <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+      <h1 class="ui header site-header">
         <%= link_to Setting.Site_Header, root_path, class: "site-header" %>
       </h1>
       <div class="site-sub-header"><%= Setting.Site_Sub_Header %></div>
     </div>
-    <div class="twelve wide computer only right aligned column">
+    <div class="eleven wide computer only right aligned column">
       <br/>
       <h3 class="site-header">
         <% @categories.each do |category| %>

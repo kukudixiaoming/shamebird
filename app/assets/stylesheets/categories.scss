@@ -38,7 +38,7 @@ div.full-width-footer {
 //   color: #767676 !important;
 // }
 .site-header {
-  color: black !important;
+  color: #333333 !important;
 }
 
 .inline-block-site-header {
@@ -55,19 +55,21 @@ div.full-width-footer {
 }
 
 .site-sub-header {
-  color: #fbbd08;
+  color: #fbbd08 !important;
   font-size: 1.2rem;
-  font-weight: 700;
+  font-weight: bold;
+  line-height: 1.2857em;
 }
 
-.black-header {
+/*.black-header {
   color: black !important;
-}
+}*/
 
 a.category-header-link {
-  color: black !important;
+  color: #333333 !important;
   &:active, &:hover, &:focus {
     // color: #ff2333 !important;
+    // color: #dd2333 !important;
     color: #dd2333 !important;
   }
 }
@@ -78,30 +80,34 @@ a.category-header-link {
   border-radius: 0.3em;
 }
 
-/*.special-image-cover {
-  height: 250px;
+.special-image-cover {
+  //height: 250px;
   text-align: center;
-  background-image: url("bg.png");
+  //background-image: url("bg.png");
   overflow: hidden;
-}*/
+}
 .post-special-image {
-  height: auto;
+  //height: 200px;
   max-width: 100%;
-  //width: 95%;
+  width: 100%;
+  border-radius: 5px;
   vertical-align: middle;
 }
 
 a.post-title-link {
-  font-size: 3.0rem;
-  color: black !important;
+  font-size: 2.7rem;
+  color: #555555 !important;
   &:active, &:hover, &:focus {
     // color: #ff0016 !important;
     color: #dd2333 !important;
   }
+  &:visited {
+    color: #dedede !important;
+  }
 }
 
 .editor-style p {
-  color: black !important;
+  color: #333333 !important;
 }
 
 .category-input {
@@ -135,7 +141,7 @@ a.post-title-link {
 }
 
 .cat-link a {
-  color: black !important;
+  color: #333333 !important;
   &:active, &:hover, &:focus {
     color: #ff2333 !important;
   }
@@ -149,7 +155,9 @@ a.post-title-link {
 div.post-text {
   line-height: 1.9em;
   font-weight: 400;
-  font-size: 17px;
+  font-size: 18px;
+  text-align: justify;
+  //word-break: break-all;
   // font-size: 1.4em;
   // color: rgba(0, 0, 0, 0.5);
   // padding-left: 10px;
@@ -162,7 +170,7 @@ div.copy-text {
   font-weight: 700;
   font-size: 16px;
   // font-size: 1.4em;
-  color: black;
+  color: #333333;
 }
 
 .pagination {

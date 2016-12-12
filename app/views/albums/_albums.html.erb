@@ -1,13 +1,13 @@
 <br/>
 <div class="ui center aligned category-block-border container">
-    <h1 class="ui header">
+    <h2 class="ui header site-header">
       <%= image_tag(@category.category_image.url, class: "ui circular image",
                     alt: @category.category_name) if @category.category_image? %>
       <div class="content">
         <%= @category.category_name %>
-        <div class="sub header black-header"><%= @category.category_brief %></div>
+        <div class="ui sub header site-header"><%= @category.category_brief %></div>
       </div>
-    </h1>
+    </h2>
     <br/>
     <div class="cat-link">
       <%= link_to '新建文章', new_category_album_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
