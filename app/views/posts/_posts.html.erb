@@ -39,9 +39,10 @@
               <%= post.post_title %>
           <% end %>
         </h1>
-        <h5 class="ui center aligned header site-sub-header">
+        <h4 class="ui center aligned header site-sub-header">
           <%= post.created_at.localtime.strftime("%Y年%m月%d日") %>
-        </h5>
+          <!--<%= post.created_at.localtime.strftime("%Y/%m/%d") %>-->
+        </h4>
       <div class="special-image-cover ui text container">
         <!-- 特色图 begin-->
         <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %> <!-- 解除注释启用特色图，自己改css吧233333 -->

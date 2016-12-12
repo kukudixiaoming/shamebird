@@ -41,6 +41,10 @@ div.full-width-footer {
   color: #333333 !important;
 }
 
+a.site-header {
+  font-weight: lighter;
+}
+
 .inline-block-site-header {
   // color: white;
   color: black !important;
@@ -57,7 +61,7 @@ div.full-width-footer {
 .site-sub-header {
   color: #fbbd08 !important;
   font-size: 1.2rem;
-  font-weight: bold;
+  font-weight: normal !important;
   line-height: 1.2857em;
 }
 
@@ -65,8 +69,13 @@ div.full-width-footer {
   color: black !important;
 }*/
 
+h2 .content {
+  font-weight: lighter;
+}
+
 a.category-header-link {
   color: #333333 !important;
+  font-weight: lighter;
   &:active, &:hover, &:focus {
     // color: #ff2333 !important;
     // color: #dd2333 !important;
@@ -97,6 +106,7 @@ a.category-header-link {
 a.post-title-link {
   font-size: 2.7rem;
   color: #555555 !important;
+  //font-weight: lighter;
   &:active, &:hover, &:focus {
     // color: #ff0016 !important;
     color: #dd2333 !important;
@@ -167,7 +177,7 @@ div.post-text {
 div.copy-text {
   text-align: center;
   line-height: 1.9em;
-  font-weight: 700;
+  font-weight: normal;
   font-size: 16px;
   // font-size: 1.4em;
   color: #333333;
