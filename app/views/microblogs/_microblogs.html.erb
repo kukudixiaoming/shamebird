@@ -1,5 +1,7 @@
-<br/>
-<div class="ui center aligned category-block-border container">
+<!--<br/>-->
+<div class="banner-padding" style="background-color: <%= Setting.Banner_Background_Color %>;
+    background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+  <div class="ui center aligned category-block-border container">
     <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
     <h2 class="ui header site-header">
       <%= image_tag(@category.category_image.url, class: "ui circular image",
@@ -9,7 +11,7 @@
         <div class="ui sub header site-header"><%= @category.category_brief %></div>
       </div>
     </h2>
-    <br/>
+    <!--<br/>-->
     <div class="cat-link">
       <%= link_to '新建文章', new_category_microblog_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
       <!-- <%= link_to '新建文章', new_category_post_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp; -->
@@ -19,44 +21,50 @@
       <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm: '确定要删除吗？'} %>
     </div>
   </div>
+</div>
+<!--<br/>-->
+</div>
 
-  <br/>
-  <br/>
-  </div>
-  <div class="ui container category-block">
-    <% if @category.microblogs.count == 0 %>
-        <center class="site-sub-header"><h2>还没有内容(ｏ・_・)ノ”(ノ_<。)</h2></center>
-    <% else %>
-        <% @microblogs.reverse.each do |mb| %>
-            <div class="posts-timeline">
-              <div class="post-timeline">
-                <h3 class="site-sub-header">
-                  <div class="post-timeline-dot"></div>
-                  &nbsp;&nbsp;&nbsp;<i class="black-color"><%= mb.created_at.localtime.strftime("%Y-%m-%d") %></i>
-                  &nbsp;&nbsp;&nbsp;<%= link_to '编辑', edit_category_microblog_path(@category, mb) %>
-                  &nbsp;&nbsp;&nbsp;<%= link_to '删除', category_microblog_path(@category, mb), method:
-                    :delete, data: {confirm: 'Are you sure?'} %>
-                </h3>
-                <div class="post-text black-color">
-                  <div class="microblog-text">
-                    <%= sanitize mb.text %>
-                  </div>
-                  <%= image_tag(mb.photo.url, class: "ui image fixheight imgshow") if mb.photo? %>
-                  <!-- <%= image_tag(mb.photo, class: "ui image fixheight imgshow", alt: mb.text) %> -->
-                </div>
-                <% if mb.music != '' %>
-                    <div class="post-music">
-                      <%= post_music(mb.music) %>
+<div class="ui grid container">
+  <div class="twelve wide column">
+    <div class="ui text container category-block">
+      <% if @category.microblogs.count == 0 %>
+          <center class="site-sub-header"><h2>还没有内容(ｏ・_・)ノ”(ノ_<。)</h2></center>
+      <% else %>
+          <% @microblogs.reverse.each do |mb| %>
+              <div class="posts-timeline">
+                <div class="post-timeline">
+                  <h3 class="site-sub-header">
+                    <div class="post-timeline-dot"></div>
+                    &nbsp;&nbsp;&nbsp;<i class="black-color"><%= mb.created_at.localtime.strftime("%Y-%m-%d") %></i>
+                    &nbsp;&nbsp;&nbsp;<%= link_to '编辑', edit_category_microblog_path(@category, mb) %>
+                    &nbsp;&nbsp;&nbsp;<%= link_to '删除', category_microblog_path(@category, mb), method:
+                      :delete, data: {confirm: 'Are you sure?'} %>
+                  </h3>
+                  <div class="post-text black-color">
+                    <div class="microblog-text">
+                      <%= sanitize mb.text %>
                     </div>
-                <% end %>
+                    <%= image_tag(mb.photo.url, class: "ui image fixheight imgshow") if mb.photo? %>
+                    <!-- <%= image_tag(mb.photo, class: "ui image fixheight imgshow", alt: mb.text) %> -->
+                  </div>
+                  <% if mb.music != '' %>
+                      <div class="post-music">
+                        <%= post_music(mb.music) %>
+                      </div>
+                  <% end %>
+                </div>
               </div>
-            </div>
-        <% end %>
-        <%= will_paginate @microblogs %>
+          <% end %>
+          <%= will_paginate @microblogs %>
 
-    <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="four wide column">
   </div>
 
+</div>
 
 
 <div class="ui basic modal">

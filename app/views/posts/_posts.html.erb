@@ -1,64 +1,116 @@
-<br/>
-<div class="ui center aligned category-block-border container">
-  <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
-  <h2 class="ui header site-header">
-    <%= image_tag(@category.category_image.url, class: "ui circular image",
-                  alt: @category.category_name) if @category.category_image? %>
-    <div class="content">
-      <%= @category.category_name %>
-      <div class="ui sub header site-header"><%= @category.category_brief %></div>
+<!--<br/>-->
+<div class="banner-padding" style="background-color: <%= Setting.Banner_Background_Color %>;
+    background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+  <div class="ui center aligned category-block-border container">
+    <!-- <h4 class="ui grey header">新建文章并且发表在><%= @category.category_name %></h4> -->
+    <h2 class="ui header site-header">
+      <%= image_tag(@category.category_image.url, class: "ui circular image",
+                    alt: @category.category_name) if @category.category_image? %>
+      <div class="content">
+        <%= @category.category_name %>
+        <div class="ui sub header site-header"><%= @category.category_brief %></div>
+      </div>
+    </h2>
+    <!--<br/>-->
+    <div class="cat-link">
+      <%= link_to '新建文章', new_category_post_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
+      <!-- <%= link_to '新建文章', new_category_post_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp; -->
+      <%= link_to '添加分类', new_category_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+      <%= link_to '编辑分类', edit_category_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp;
+      <%= link_to '全部分类', categories_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
+      <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm: '确定要删除吗？'} %>
     </div>
-  </h2>
-  <br/>
-  <div class="cat-link">
-    <%= link_to '新建文章', new_category_post_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <!-- <%= link_to '新建文章', new_category_post_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp; -->
-    <%= link_to '添加分类', new_category_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to '编辑分类', edit_category_path(@category) %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to '全部分类', categories_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
-    <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm: '确定要删除吗？'} %>
+  </div>
+</div>
+<!--<br/>-->
+</div>
+
+<div class="ui grid container">
+  <div class="twelve wide computer sixteen wide table sixteen wide mobile column">
+
+    <div class="category-block">
+
+      <% if @category.posts.count == 0 %>
+          <center class="site-sub-header"><h2>还没有内容(ｏ・_・)ノ”(ノ_<。)</h2></center>
+      <% end %>
+
+
+      <div class="ui divided items">
+        <% @posts.reverse.each do |post| %>
+        <div class="item">
+          <div class="ui small image">
+            <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %>
+          </div>
+          <div class="content">
+            <%= link_to category_post_path(@category, post), class: "post-title-link header" do %>
+                <%= post.post_title %>
+            <% end %>
+            <div class="meta">
+              <span class="cinema"><a href="#"><img alt="酷酷滴小明" class="ui avatar image" src="https://secure.gravatar.com/avatar/b1e2a7359180682494551271110ff961?d=identicon"><span>酷酷滴小明</span></a> · <%= post.created_at.localtime.strftime("%Y年%m月%d日") %></span>
+            </div>
+            <div class="description">
+              <p><%= strip_tags(post.post_text).truncate(120, omission: "...") %></p>
+            </div>
+            <div class="extra">
+              <div class="ui label"><i class="mail icon"></i> 发布在 <a class="detail">谐奇趣管委会</a> </div>
+
+              <div class="ui label"><i class="gift icon"></i> 收获了 <a class="detail">阅读200</a>
+                <a class="detail">评论100</a><a class="detail">喜欢36</a> <a class="detail">收藏16</a> </div>
+
+
+              <!--<div class="ui label"><i class="tags icon"></i> 兴趣签 <a class="detail">官方</a> <a class="detail">声明</a> <a class="detail">谐奇趣</a></div>-->
+
+
+            </div>
+          </div>
+        </div>
+        <% end %>
+
+      </div>
+
+
+
+<!-- Begin 适用于博客类型的文章列表布局 -->
+<!--      <% @posts.reverse.each do |post| %>
+
+          &lt;!&ndash; <%= image_tag(post.post_image, class: "post-image", alt: post.post_title) %> &ndash;&gt;
+
+
+          <h1 class="ui center aligned header site-header">
+            <%= link_to category_post_path(@category, post), class: "post-title-link" do %>
+                <%= post.post_title %>
+            <% end %>
+          </h1>
+          <h4 class="ui center aligned header site-sub-header">
+            <%= post.created_at.localtime.strftime("%Y年%m月%d日") %>
+            &lt;!&ndash;<%= post.created_at.localtime.strftime("%Y/%m/%d") %>&ndash;&gt;
+          </h4>
+          <div class="special-image-cover">
+            &lt;!&ndash; 特色图 begin&ndash;&gt;
+            <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %> &lt;!&ndash; 解除注释启用特色图，自己改css吧233333 &ndash;&gt;
+            &lt;!&ndash; 特色图 end&ndash;&gt;
+          </div>
+          <br/>
+          <br/>
+          &lt;!&ndash; <div class="post-text"><%= sanitize post.post_text %></div> &ndash;&gt;
+          <div class="post-text editor-style">
+            <%= raw cutpost(post.post_text, category_post_path(@category, post)) %>
+          </div>
+      <% end %>-->
+<!-- Begin 适用于博客类型的文章列表布局 -->
+
+
+
+      <%= will_paginate @posts %>
+    </div>
+  </div>
+  <div class="four wide computer only column">
+    <%= render 'sidebar' %>
+
   </div>
 </div>
 <br/>
-<br/>
-</div>
 
-<div class="ui container category-block">
-
-    <% if @category.posts.count == 0 %>
-        <center class="site-sub-header"><h2>还没有内容(ｏ・_・)ノ”(ノ_<。)</h2></center>
-    <% end %>
-
-    <% @posts.reverse.each do |post| %>
-
-        <!-- <%= image_tag(post.post_image, class: "post-image", alt: post.post_title) %> -->
-
-
-        <h1 class="ui center aligned header site-header">
-          <%= link_to category_post_path(@category, post), class: "post-title-link" do %>
-              <%= post.post_title %>
-          <% end %>
-        </h1>
-        <h4 class="ui center aligned header site-sub-header">
-          <%= post.created_at.localtime.strftime("%Y年%m月%d日") %>
-          <!--<%= post.created_at.localtime.strftime("%Y/%m/%d") %>-->
-        </h4>
-      <div class="special-image-cover ui text container">
-        <!-- 特色图 begin-->
-        <%= image_tag(post.post_image.url, class: "post-special-image") if post.post_image? %> <!-- 解除注释启用特色图，自己改css吧233333 -->
-        <!-- 特色图 end-->
-      </div>
-      <br/>
-      <br/>
-        <!-- <div class="post-text"><%= sanitize post.post_text %></div> -->
-        <div class="post-text editor-style">
-          <%= raw cutpost(post.post_text, category_post_path(@category, post)) %>
-        </div>
-    <% end %>
-    <%= will_paginate @posts %>
-</div>
-
-<br/>
 
 <div class="ui basic modal">
   <div class="ui-icon-header">

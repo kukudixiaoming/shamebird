@@ -180,7 +180,7 @@ if($('.imgshow')[0]){
 $(document).on('page:change', function () {
 // var str = document.getElementById("post-text").innerHTML;
   if($(".post-text")[0]) {
-    var $str = $(".post-text").html().replace("moremore", "");
+    var $str = $(".post-text").html().replace("--more--", "");
     $(".post-text.post-page").html($str);
   }
 });
@@ -200,6 +200,23 @@ $(document).on('page:change', function () {
     hljs.highlightBlock(block);
   });
 });
+
+$(document).on('page:change', function () {
+  //********** 新建文章封面图弹出 **********
+$(".select-cover-image-button").click(function(){
+$('.ui.modal')
+    .modal({
+      inverted: true
+    })
+    .modal('show')
+;});
+//********** 新建文章右边按钮的提示气泡 **********
+  $('.select-cover-image-button, .post-articl-button')
+      .popup({
+        on: 'hover'
+      })
+  ;
+});
 /*
  *使用jquery修改带有特殊字符 "/" 的css class的背景颜色
  */
@@ -208,4 +225,41 @@ $(document).on('page:change', function () {
   /*$(".header-bg").css({"background-image": "url(<%= asset_url(Setting.Banner_Image) %>)",
     "background-color": "<%= Setting.Banner_Background_Color %>"});*/
 });
-console.log(' powered by .shamebird (=￣ω￣=)');
+
+
+$(document).on('page:change', function () {
+
+  $('#post_post_image, #category_category_image, #microblog_photo, #album_picture').bind('change', function () {
+    var $coverImage = this.files[0];
+    size_in_megabytes = $coverImage.size / 1024 / 1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+
+    //预览上传图片,返回图片信息
+    var $reader = new FileReader();
+    $reader.readAsDataURL($coverImage);
+    $reader.onloadend = function () {
+      $('.tempimgshow').attr('src', this.result);
+      $('.cover-image-name').text("图片名: " + $coverImage.name);
+      $('.cover-image-size').text("图片大小: " + $coverImage.size / 1024 + " kb");
+      $('.actions').html("封面图已选择<i class='green check circle icon'></i>点击该窗口外的任意位置即可关闭本窗口");
+    }
+
+  });
+  $("#del-specil-img-button").bind("click", function () {
+
+  });
+
+  //点击另一个按钮来触发被隐藏的按钮的点击
+  $(".cover-image-button").click(function () {
+    $(".submit-cover-image").trigger("click");
+  });
+  $(".post-articl-button").click(function () {
+    $(".submit-post-button").trigger("click");
+  });
+
+
+});
+//console.log(' powered by .shamebird (=￣ω￣=)');
+console.log("%c powered by %c","background:#24272A; color:#ffffff","","shamebird http://shamebird.org");

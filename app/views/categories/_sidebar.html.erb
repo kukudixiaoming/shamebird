@@ -1,0 +1,33 @@
+<div class="category-block">
+
+  <div class="ui inverted segment sidebar-segment">
+    <h4 class="ui grey header">
+      <img alt="酷酷滴小明" class="ui circular image" src="https://secure.gravatar.com/avatar/b1e2a7359180682494551271110ff961?d=identicon">
+      <div class="content">酷酷滴小明
+        <div class="sub header">一个普通的男孩子</div>
+      </div>
+    </h4>
+  </div>
+
+  <div class="ui inverted segment sidebar-segment-transparent">
+    <h5 class="ui dividing header sidebar-header"># 文章分类 </h5>
+    <% @categories.each do |category| %>
+        <% if category.category_type == "post" %>
+            <a class="ui medium teal image label"><img src="<%= category.category_image.url %>"> <%= category.category_name %>
+              <div class="detail"><%= category.posts.count %></div>
+            </a>
+            <br/><br/>
+        <% end %>
+    <% end %>
+  </div>
+
+
+  <div class="ui inverted segment sidebar-segment-transparent">
+    <h5 class="ui dividing header sidebar-header"># 广告 </h5>
+    <img class="ui medium rounded image" src="">
+    <br/>
+    <img class="ui medium rounded image" src="">
+    <br/>
+    <img class="ui medium rounded image" src="">
+  </div>
+</div>

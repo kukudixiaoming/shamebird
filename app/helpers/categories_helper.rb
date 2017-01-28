@@ -57,7 +57,7 @@ module CategoriesHelper
   end
 
   def cutpost(str, path)
-    long = str =~ /moremore/
+    long = str =~ /--more--/
     omi = "... #{link_to "继续阅读", path}"
     if long == nil
       long = str.length

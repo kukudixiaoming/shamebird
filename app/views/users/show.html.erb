@@ -1,3 +1,24 @@
+<%= render 'categories/header' %>
+
+<!--<br/>-->
+<div class="banner-padding" style="background-color: <%= Setting.Banner_Background_Color %>;
+    background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+  <div class="ui center aligned category-block-border container">
+    <h2 class="ui header site-header">
+      <%= gravatar_for_user @user %>
+      <div class="content"><%= @user.name %> <div class="sub header">Check out our plug-in marketplace</div>
+      </div>
+    </h2>
+    <!--<br/>-->
+    <div class="cat-link">
+      <%= link_to "编辑档案", edit_user_path(current_user) %>&nbsp;&nbsp;/&nbsp;&nbsp;
+      <%= link_to "退出登录", logout_path, method: "delete" %>
+    </div>
+  </div>
+</div>
+<!--<br/>-->
+</div>
+
 <div class="ui container">
   <br/>
   <h1 class="ui inverted center aligned header">

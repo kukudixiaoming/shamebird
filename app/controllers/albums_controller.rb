@@ -4,11 +4,13 @@ class AlbumsController < ApplicationController
   before_action :logged_in_user, except: [:index, :show]
 
   def new
+    @categories = Category.all
     @category = Category.find(params[:category_id])
     @album = @category.albums.new
   end
 
   def create
+    @categories = Category.all
     @category = Category.find(params[:category_id])
     @album = @category.albums.new(album_params)
     if @album.save then
@@ -25,6 +27,7 @@ class AlbumsController < ApplicationController
   # end
 
   def edit
+    @categories = Category.all
     @category = Category.find(params[:category_id])
     @album = @category.albums.find(params[:id])
   end

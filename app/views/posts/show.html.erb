@@ -1,7 +1,10 @@
 <%= render 'categories/header' %>
 <br/>
 </div>
-<div class="ui container category-block">
+<div class="ui grid container">
+  <div class="twelve wide computer sixteen wide table sixteen wide mobile column">
+
+    <div class="ui text container category-block">
   <!-- 特色图 begin-->
   <!-- <%= image_tag @post.post_image.url if @post.post_image? %> 解除注释启用特色图，自己改css吧233333-->
   <!-- 特色图 end-->
@@ -38,6 +41,12 @@
   </div>
 
 </div>
+</div>
+  <div class="four wide computer only column">
+    <%= render 'categories/sidebar' %>
+
+  </div>
+</div>
 
 <div class="ui basic modal">
   <div class="ui-icon-header">
@@ -51,3 +60,13 @@
       <div class="ui green ok inverted button"><i class="checkmark icon"></i> Yes </div>
     </div> -->
 </div>
+<!--
+<script>
+  $(document).on('page:change', function () {
+    if($("body").attr("class") == "posts-show"){
+      <% if @post.post_image? %>
+      $(".header-bg").css("background-image","url(<%= @post.post_image.url %>)");
+      <% end %>
+    }
+  });
+</script>-->

@@ -1,5 +1,7 @@
-<br/>
-<div class="ui center aligned category-block-border container">
+<!--<br/>-->
+<div class="banner-padding" style="background-color: <%= Setting.Banner_Background_Color %>;
+    background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+  <div class="ui center aligned category-block-border container">
     <h2 class="ui header site-header">
       <%= image_tag(@category.category_image.url, class: "ui circular image",
                     alt: @category.category_name) if @category.category_image? %>
@@ -8,7 +10,7 @@
         <div class="ui sub header site-header"><%= @category.category_brief %></div>
       </div>
     </h2>
-    <br/>
+    <!--<br/>-->
     <div class="cat-link">
       <%= link_to '新建文章', new_category_album_path(@category), data: {no_turbolink: true} %>&nbsp;&nbsp;/&nbsp;&nbsp;
       <%= link_to '添加分类', new_category_path %>&nbsp;&nbsp;/&nbsp;&nbsp;
@@ -17,38 +19,38 @@
       <%= link_to '删除分类', category_path(@category), method: :delete, data: {confirm: '确定要删除吗？'} %>
     </div>
   </div>
-<br/>
-<br/>
+</div>
+<!--<br/>-->
 </div>
 
-  <div class="ui container category-block">
+<div class="ui container category-block">
 
-    <!-- 瀑布流布局 -->
-    <div id="masonry" class="container-fluid">
+  <!-- 瀑布流布局 -->
+  <div id="masonry" class="container-fluid">
 
 
-      <% @albums.reverse.each do |album| %>
-          <div style="display:none;">
-            <%= link_to '编辑', edit_category_album_path(@category, album) %>
-            <%= link_to '删除', category_album_path(@category, album), method:
-                :delete, data: {confirm: 'Are you sure?'} %>
-          </div>
-          <div style="display:none;">
-            <%= album.description %>
-          </div>
-          <div class="box">
+    <% @albums.reverse.each do |album| %>
+        <div style="display:none;">
+          <%= link_to '编辑', edit_category_album_path(@category, album) %>
+          <%= link_to '删除', category_album_path(@category, album), method:
+              :delete, data: {confirm: 'Are you sure?'} %>
+        </div>
+        <div style="display:none;">
+          <%= album.description %>
+        </div>
+        <div class="box">
 
-            <%= image_tag(album.picture.url, class: 'imgshow') if album.picture? %>
+          <%= image_tag(album.picture.url, class: 'imgshow') if album.picture? %>
 
-          </div>
-      <% end %>
-
-    </div>
-    <!-- 瀑布流布局 -->
-    <br/>
-    <%= will_paginate @albums %>
+        </div>
+    <% end %>
 
   </div>
+  <!-- 瀑布流布局 -->
+  <br/>
+  <%= will_paginate @albums %>
+
+</div>
 
 <div class="ui basic modal">
   <!-- 原先的，下面的语句替代了这个<div class="ui icon header"> -->

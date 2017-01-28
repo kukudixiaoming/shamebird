@@ -1,0 +1,34 @@
+<%= render 'categories/header' %>
+
+<!--<br/>-->
+<div class="banner-padding" style="background-color: <%= Setting.Banner_Background_Color %>;
+    background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+  <div class="ui center aligned category-block-border container">
+    <h2 class="ui header site-header">
+      <img class="ui circular image" alt="日常" src="/uploads/category/category_image/3/avatar.jpg">
+      <div class="content">所有用户 <div class="sub header">全站用户列表</div>
+      </div>
+    </h2>
+    <!--<br/>-->
+<!--    <div class="cat-link">
+      <%= link_to "编辑档案", edit_user_path(current_user) %>&nbsp;&nbsp;/&nbsp;&nbsp;
+      <%= link_to "退出登录", logout_path, method: "delete" %>
+    </div>-->
+  </div>
+</div>
+<!--<br/>-->
+</div>
+
+<div class="ui text container">
+<div class="ui middle aligned selection list category-block">
+  <% @users.each do |user| %>
+  <div class="item">
+    <%= gravatar_for_user user, "mini" %>
+    <div class="content">
+      <%= link_to user.name, user_path(user), class: "header" %>
+      <div class="description">加入日期: <a><b><%= user.created_at %></b></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;档案更新日期: <a><b><%= user.updated_at %></b></a> </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>

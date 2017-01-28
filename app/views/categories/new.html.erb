@@ -1,12 +1,23 @@
-<div class="ui text container">
-  <br/>
-  <div class="ui white inverted segment">
-  <h1 class="ui grey header">
-    分类·新建
-  </h1>
-  <%= render 'form' %>
-  <br/>
+<%= render 'categories/header' %>
+
+<!--<br/>-->
+<div class="banner-padding" style="background-color: <%= Setting.Banner_Background_Color %>;
+    background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+  <div class="ui center aligned category-block-border container">
+    <h2 class="ui header site-header">
+      <img class="ui circular image" alt="日常" src="/uploads/category/category_image/3/avatar.jpg">
+      <div class="content">新建分类 <div class="sub header">创建新的分类</div>
+      </div>
+    </h2>
+    <!--<br/>-->
+    <div class="cat-link">
+    </div>
+  </div>
 </div>
-</br>
+<!--<br/>-->
+</div>
+<div class="ui text container">
+  <%= render 'form' %>
+
   <!-- <%= link_to '全部分类', categories_path %> -->
 </div>

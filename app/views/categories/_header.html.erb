@@ -1,15 +1,28 @@
-<div class="header-bg" style="background-color: <%= Setting.Banner_Background_Color %>;
-background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+<div class="header-bg">
 <div class="full-width-header ui container">
   <div class="ui grid">
-    <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
-      <h1 class="ui header site-header">
+    <div class="sixteen wide mobile sixteen wide tablet sixteen wide computer column top-menu-no-padding-bottom">
+
+      <h2 class="ui header site-header">
+        <img class="ui mini image" src="https://rocky-meadow-7050.herokuapp.com/assets/logo-7fa7901bf3ed34a59958448fd22c7757893d38c6a38676af076a92777d1d9a5a.png">
+        <div class="content">
+          <%= link_to Setting.Site_Header, root_path, class: "site-header" %>
+        </div>
+      </h2>
+
+<!--      <h1 class="ui header site-header">
         <%= link_to Setting.Site_Header, root_path, class: "site-header" %>
-      </h1>
+      </h1>-->
+      <!--<div class="site-sub-header"><%= Setting.Site_Sub_Header %></div>-->
+    </div>
+    <div class="sixteen wide mobile sixteen wide tablet five wide computer column">
+      <!--<h1 class="ui header site-header">
+        <%= link_to Setting.Site_Header, root_path, class: "site-header" %>
+      </h1>-->
       <div class="site-sub-header"><%= Setting.Site_Sub_Header %></div>
     </div>
     <div class="eleven wide computer only right aligned column">
-      <br/>
+      <!--<br/>-->
       <h3 class="site-header">
         <% @categories.each do |category| %>
         <%= link_to category.category_name, category_path(category),

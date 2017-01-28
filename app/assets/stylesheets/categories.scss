@@ -9,17 +9,26 @@
 // div.top-header{
 //   padding: 1.7em 1em 1em 1em;
 // }
-body.categories-new, body.categories-edit, body.categories-create, body.categories-update {
+/*body.categories-new, body.categories-edit, body.categories-create, body.categories-update {
   background-color: #f8f8f9;
   // background-image: image-url("editor-bg.jpg");
-}
+}*/
 
 div.full-width-header {
   width: 100%;
   // background-color: #FBFBFB;
-  padding-top: 1.7em;
-  padding-bottom: 1em;
+  padding-top: 1.23em;
+  padding-bottom: 1.23em;
   // border-bottom: 1px solid #DEDEDE;
+}
+
+.banner-padding {
+  padding-bottom: 1.5em;
+  padding-top: 1.5em;
+}
+
+.top-menu-no-padding-bottom {
+  padding-bottom: 0 !important;
 }
 
 div.full-width-footer {
@@ -137,15 +146,23 @@ a.post-title-link {
   // margin-top: 2em;
   //border: 3px dashed #dd2333;
   border-radius: 0.5em;
-  background-color: rgba(173, 202, 204, 0.24);
+  //background-color: rgba(173, 202, 204, 0.24);
+  background-color: rgba(255, 255, 255, 0.9)
   //background-image: url(bg.png);
   //border: 3px dashed #767676;
 }
 
 .category-block {
-  background-color: white;
+  //background-color: white;
   // padding: 1.7em 2em 1.5em;
   padding-top: 1.6em !important;
+  margin-bottom: 1.5em !important;
+  margin-top: 1em !important;
+}
+.category-block-middle {
+  //background-color: white;
+  // padding: 1.7em 2em 1.5em;
+  //padding-top: 1.6em !important;
   margin-bottom: 1.5em !important;
   margin-top: 1em !important;
 }
@@ -185,6 +202,10 @@ div.copy-text {
 
 .pagination {
   text-align: center;
+}
+
+.ui.text.container.category-block {
+  margin-left: 0 !important;
 }
 
 // <!-- 瀑布流布局 Begin-->

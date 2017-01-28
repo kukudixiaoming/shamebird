@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
     #@category = Category.find(params[:category_id])
     #@post = Post.find(params[:post_id])
     #@comments = Comment.all
+    @categories = Category.all
     @comments = Comment.paginate(page: params[:page], per_page: Setting.Comments_Paginate)
   end
 

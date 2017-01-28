@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'info/new'
+
+  get 'info/show'
+
   root 'categories#show'
   # Captcha
   mount RuCaptcha::Engine => "/rucaptcha"

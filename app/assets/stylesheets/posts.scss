@@ -105,6 +105,13 @@ body.posts-new, body.posts-edit, body.posts-create, body.posts-update {
   background: #eeeeee !important;
 }
 
+.simditor .markdown-editor textarea {
+  border-bottom: none !important;
+  border: none !important;
+  border-radius: none !important;
+  box-shadow: none !important;
+}
+
 .cover {
   text-align: center;
 }
@@ -131,4 +138,29 @@ a.greylink, a.greylink:active, a.greylink:hover, a.greylink:focus {
 
 h1.ui.header.site-header {
   font-weight: normal;
+}
+
+.sidebar-header {
+  //border-bottom: 2px solid #cbd0d2 !important;
+  color: #69767d !important;
+}
+
+.sidebar-segment {
+  background-color: #f3f3f5 !important;
+  color: #000;
+}
+
+.sidebar-segment-transparent {
+  background-color: transparent !important;
+}
+
+.fixed-siderbar-menu {
+  box-shadow: none !important;
+  border:none !important;
+  background-color: #f3f3f5 !important;
+  //position: fixed;
+}
+
+.display-none {
+  display: none !important;
 }

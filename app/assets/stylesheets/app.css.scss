@@ -42,7 +42,8 @@ html {
 .header-bg {
   background-repeat:no-repeat;
   background-attachment:fixed;
-  background-position:center;
+  //background-position:center;
+  background-size: cover;
 }
 .blur {
   filter: url(blur.svg#blur); /* FireFox, Chrome, Opera */

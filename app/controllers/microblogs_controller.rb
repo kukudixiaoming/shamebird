@@ -4,6 +4,7 @@ class MicroblogsController < ApplicationController
   before_action :logged_in_user, except: [:index, :show]
 
   def new
+    @categories = Category.all
     @category = Category.find(params[:category_id])
     @microblog = @category.microblogs.new
   end
@@ -29,6 +30,7 @@ class MicroblogsController < ApplicationController
   end
 
   def edit
+    @categories = Category.all
     @category = Category.find(params[:category_id])
     @microblog = Microblog.find(params[:id])
   end

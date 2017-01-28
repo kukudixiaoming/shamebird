@@ -10,11 +10,11 @@ img.microblog_image.image {
 }
 
 .ui.white.inverted.segment{
-  background-color: white !important;
+  background-color: transparent !important;
   color: black;
 }
 
-body.albums-new, body.albums-edit, body.albums-create, body.albums-update {
+/*body.albums-new, body.albums-edit, body.albums-create, body.albums-update {
   background-color: #f8f8f9;
   // background-image: image-url("editor-bg.jpg");
-}
+}*/

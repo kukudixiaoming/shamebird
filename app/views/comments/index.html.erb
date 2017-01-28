@@ -1,14 +1,34 @@
+<%= render 'categories/header' %>
+
+<!--<br/>-->
+<div class="banner-padding" style="background-color: <%= Setting.Banner_Background_Color %>;
+    background-image: url(<%= asset_url(Setting.Banner_Image) %>);">
+  <div class="ui center aligned category-block-border container">
+    <h2 class="ui header site-header">
+      <img class="ui circular image" alt="日常" src="/uploads/category/category_image/3/avatar.jpg">
+      <div class="content">所有评论 <div class="sub header">这里显示全站所有评论，新评论将显示在旧评论之前</div>
+      </div>
+    </h2>
+    <!--<br/>-->
+    <div class="cat-link">
+    </div>
+  </div>
+</div>
+<!--<br/>-->
+</div>
+
+
+
 <div class="ui text container">
-  <br/>
-  <div class="ui white inverted segment">
-  <h3 class="ui center aligned grey header">评论</h3>
-  <h4 class="ui center aligned grey header">这里显示所有评论，新评论将显示在旧评论之前</h4>
+
+  <!--<h3 class="ui center aligned grey header">评论</h3>
+  <h4 class="ui center aligned grey header">这里显示所有评论，新评论将显示在旧评论之前</h4>-->
   <% if @comments.count == 0 %>
       <center class="site-sub-header"><h2>这个破站一条评论都没有(ｏ・_・)ノ”(ノ_<。)</h2></center>
   <% end %>
-<div class="ui comments">
+<div class="ui middle aligned selection list comments category-block">
 <% @comments.reverse.each do |comment| %>
-    <div class="comment" id="<%= comment.id %>">
+    <div class="item comment" id="<%= comment.id %>">
       <a class="avatar">
         <%= gravatar_for_commenter(comment) %>
       </a>
@@ -39,6 +59,4 @@
 <% end %>
   <%= will_paginate @comments %>
 </div>
-    </div>
-  <br/>
   </div>
